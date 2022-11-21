@@ -4,7 +4,10 @@
 int k = 3;
 while(k <= 10)
 {
-    print >> k;
+    /*
+        a b c d e f g
+    */
+    print /*a b c d e f g*/ >> k;
 }
 // 相当于for(int name = 1; name < 7; name++)
 for 1 to 7

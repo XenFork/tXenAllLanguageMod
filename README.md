@@ -3,6 +3,21 @@ The next magic change supports cross era scripts in all languages
 
 下一个魔改支持所有语言的跨时代脚本
 
+# development logs
+<details>
+<summary>Expand View Logs give to china</summary>
+<span>
+
+- [x] 创建txenScript项目
+- [x] 添加列出指定文件夹的类和后缀名列表
+
+</span>
+</details>
+
+# default
+
+- [ ] create xen script for java17
+
 # forge
 
 <details>

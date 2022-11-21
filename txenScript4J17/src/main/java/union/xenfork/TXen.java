@@ -3,34 +3,65 @@ package union.xenfork;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+
+import static union.xenfork.FileLoader.loadFile;
 
 public class TXen {
     public static final List<String> extension = new ArrayList<>();
-    public static void main(String[] args) {
+    public static final List<List<String>> listListString = new ArrayList<>();
+    public static boolean b = true;
+    public static void main(String[] args) throws IOException {
         //test
         init();
         File file = new File(System.getProperty("user.dir"), "test");
         var a = loadFile(file);
         for (var b : a) {
-            System.out.println(b);
-            try {
-                read(b);
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (b.getName().contains(".xs")) {
+                listListString.add(readXen(b));
+            }
+        }
+        for (var l : listListString) {
+            for (var k : l) {
+                System.out.println(k);
             }
         }
     }
 
-    public static void read(File file) throws IOException {
+
+    public static List<String> readXen(File file) throws IOException {
+        final List<String> list = new ArrayList<>();
+        final Map<Integer, List<String>> map = new HashMap<>();//以后会用到
         Path path = file.toPath();
         Scanner scanner = new Scanner(path);
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            System.out.println(line);
+            if (b) list.add(delete_note(line).replaceAll(" {2}", " "));
+            if (line.contains("/*") && !line.contains("*/")) {
+                b = false;
+                list.add(delete_note(line));
+            } else if (line.contains("*/")) b = true;
         }
+        return list;
+    }
+
+    //删除注释
+    public static String delete_note(String line) {
+        String line_ = line;
+        if (line_.contains("//")) {
+            line_ = line_.substring(0, line_.indexOf("//"));
+        }
+        while (line_.contains("/*")) {
+            if (line_.contains("*/")) {
+                line_ = line_.substring(0, line_.indexOf("/*")) + line_.substring(line_.indexOf("*/") + 2);
+            } else {
+                line_ = line_.substring(0, line_.indexOf("/*"));
+            }
+        }
+        if (line_.contains("*/")) {
+            line_ = line_.substring(line_.indexOf("*/") + 2);
+        }
+        return line_;
     }
 
 
@@ -38,18 +69,6 @@ public class TXen {
         //注入添加后缀名
         extension.add(".xs");
     }
-    //写入教科书式的读取文件列表
-    public static List<File> loadFile(File file) {
-        List<File> files = new ArrayList<>();
-        final var listFiles = file.listFiles();
-        final var stream = extension.stream();
-        if (listFiles != null)
-            for (var f : listFiles)
-                if (f.isDirectory())
-                    files.addAll(loadFile(f));
-                else
-                    stream.filter(e -> f.getName().contains(e)).map(e -> f).forEach(files::add);
-        return files;
-    }
+
 
 }
