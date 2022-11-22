@@ -8,9 +8,10 @@ import java.util.*;
 import static union.xenfork.FileLoader.loadFile;
 
 public class TXen {
-    public static final List<String> extension = new ArrayList<>();
+    public static List<String> extension = new ArrayList<>();
     public static final List<List<String>> listListString = new ArrayList<>();
     public static boolean b = true;
+    public static boolean isMethod = false;
     public static void main(String[] args) throws IOException {
         //test
         init();
@@ -18,31 +19,56 @@ public class TXen {
         var a = loadFile(file);
         for (var b : a) {
             if (b.getName().contains(".xs")) {
-                listListString.add(readXen(b));
+                extension = readXenCode(b);
             }
         }
-        for (var l : listListString) {
-            for (var k : l) {
-                System.out.println(k);
-            }
+        for (var d : extension) {
+            System.out.println(d);
         }
     }
 
-
-    public static List<String> readXen(File file) throws IOException {
-        final List<String> list = new ArrayList<>();
-        final Map<Integer, List<String>> map = new HashMap<>();//以后会用到
-        Path path = file.toPath();
-        Scanner scanner = new Scanner(path);
+    public static List<String> readXenCode(File file) throws IOException {
+        final List<String> codes = new ArrayList<>();
+        Scanner scanner = new Scanner(file.toPath());
+        StringBuilder sb = new StringBuilder();
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            if (b) list.add(delete_note(line).replaceAll(" {2}", " "));
+
+            if (b) {
+                if (line.contains("{")) {
+                    isMethod = true;
+                }
+                if (isMethod) {
+                    if (line.contains("}")) {
+                        isMethod = false;
+                        sb.append(delete_note(line));
+                        codes.add(sb.toString());
+                        sb = new StringBuilder();
+                    } else {
+                        sb.append(delete_note(line));
+                    }
+                } else {
+                    if (line.contains(";")) {
+                        sb.append(delete_note(line));
+                        codes.add(sb.toString());
+
+                        sb = new StringBuilder();
+                    } else {
+                        sb.append(delete_note(line));
+                    }
+                }
+
+            }
             if (line.contains("/*") && !line.contains("*/")) {
                 b = false;
-                list.add(delete_note(line));
-            } else if (line.contains("*/")) b = true;
+                sb.append(delete_note(line));
+            } else if (line.contains("*/")) {
+                b = true;
+                sb.append(delete_note(line));
+            }
+
         }
-        return list;
+        return codes;
     }
 
     //删除注释

@@ -2,7 +2,7 @@
 # 1;
 # ItemStack > a;
 int k = 3;
-while(k <= 10)
+while k <= 10
 {
     /*
         a b c d e f g
