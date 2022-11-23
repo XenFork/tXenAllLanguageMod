@@ -26,10 +26,11 @@ public class Loop {
     }
 
     public void load(String str) {
+        var pre = str.substring(0, str.indexOf("{")).replace(s, "");
+        var sub = str.substring(str.indexOf("{") + 1, str.lastIndexOf("}"));
         switch (getMode()) {
             case 0 -> {
-               var pre = str.substring(0, str.indexOf("{")).replace(s, "");
-               var sub = str.substring(str.indexOf("{") + 1, str.lastIndexOf("}"));
+              var tmp = pre.split("<<");
                /*
                for 1 << 7 {
                     for 2 << 13 {
@@ -43,6 +44,7 @@ public class Loop {
                 */
             }
             case 1 -> {
+
             }
             case 2 -> {
 
