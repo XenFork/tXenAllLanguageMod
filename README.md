@@ -14,6 +14,10 @@ t Xen含有next之意味，还有XenFork的意思，表示我们将带领大家�
 
 - [x] 创建tXenScript项目
 - [x] 添加列出指定文件夹的类和后缀名列表
+- [x] 初步读取xs文件，下一步要转换成java类XenMethod, XenField
+- [ ] XenField完成
+- [ ] XenMethod完成
+
 
 </span>
 </details>
