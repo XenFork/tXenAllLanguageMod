@@ -2,7 +2,7 @@
 # 1;
 # ItemStack > a;
 int k = 3;
-var me = "It's me"
+var me = "It's me";
 while k <= 10
 {
     /*
@@ -24,7 +24,7 @@ for 1 to 7
     long l = 0f;
     float f = 0.1f;
     double d = 0.3333333333333;
-    print >> i >> j >> k >> l >> f >> d >> "end";
+    print >> i , j , k , l , f , d , "end";
 }
 val some as string =
 {
