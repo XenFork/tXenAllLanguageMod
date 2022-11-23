@@ -8,7 +8,7 @@ The next magic change supports cross era scripts in all languages
 <summary>Expand View Logs give to china</summary>
 <span>
 
-- [x] 创建txenScript项目
+- [x] 创建tXenScript项目
 - [x] 添加列出指定文件夹的类和后缀名列表
 
 </span>

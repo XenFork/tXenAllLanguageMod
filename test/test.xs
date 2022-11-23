@@ -17,7 +17,7 @@ for 1 to 7
     val is as ints =
     {
         1, 3, 4, 5, 6, 10
-    };
+    }
     string j = "abc";
     bool k = true;
     long l = 0f;
@@ -28,7 +28,7 @@ for 1 to 7
 val some as string =
 {
     "random", "a", "solidworks"
-};
+}
 foreach i in some {
     print >> i;
 }
