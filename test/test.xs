@@ -28,7 +28,7 @@ for 1 to 7
 val some as string =
 {
     "random", "a", "solidworks"
-}
+}//有{}就略去;
 foreach i in some {
     print >> i;
 }
