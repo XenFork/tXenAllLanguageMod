@@ -3,6 +3,10 @@ The next magic change supports cross era scripts in all languages
 
 下一个魔改支持所有语言的跨时代脚本
 
+T Xen means next and XenFork means that we will lead you into a new era
+
+t Xen含有next之意味，还有XenFork的意思，表示我们将带领大家进入新时代
+
 # development logs
 <details>
 <summary>Expand View Logs give to china</summary>
