@@ -30,23 +30,14 @@ public class FileLoader {
 		sb = deserialization(file);//反序列化
 		lineCodes = serialize(sb);//序列号存储
 		for (var list : lineCodes) {
-			if (list.indexOf("{") >= list.indexOf("=") || list.indexOf(">>") >= list.indexOf("=")) {
-				objects.put(objects.size(), new XenField(list));
-			} else {
-				objects.put(objects.size(), new XenMethod(list));
+			if (list.contains("for")) {
+
 			}
 //			if (list.contains("=") && list.contains(">>") && !list.contains("{")) {
 //				objects.put(objects.size(),new XenField(list));
 //			} else {
 //				objects.put(objects.size(),new XenMethod(list));
 //			}
-		}
-		for (var a : objects.values()) {
-			if (a instanceof XenField b) {
-				System.out.println(b.string);
-			} else {
-				System.out.println(((XenMethod) a).string);
-			}
 		}
 	}
 	public StringBuilder deserialization(File file) throws IOException {

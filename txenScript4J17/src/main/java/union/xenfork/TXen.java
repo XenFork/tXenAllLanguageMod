@@ -19,7 +19,6 @@ public class TXen {
             if (b.getName().contains(".xs")) {
 //                extension = readXenCode(b);
                 var fileLoader = new FileLoader(b);
-                fileLoader.getLineCodes().forEach(System.out::println);
             }
         }
 //        for (var d : extension) {
