@@ -2,6 +2,7 @@
 # 1;
 # ItemStack > a;
 int k = 3;
+var me = "It's me"
 while k <= 10
 {
     /*

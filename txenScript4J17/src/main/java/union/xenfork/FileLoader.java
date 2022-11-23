@@ -107,6 +107,12 @@ public class FileLoader {
 		return sb.toString();
 	}
 
+	public static class XenField {
+		public XenField() {
+			
+		}
+	}
+
 	public static class XenMethod {//方法，用于function >> function >> function { field; }
 		public XenMethod(String str) {
 
