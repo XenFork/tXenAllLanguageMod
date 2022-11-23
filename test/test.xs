@@ -11,7 +11,7 @@ while k <= 10
     print /*a b c d e f g*/ >> k;
 }
 // 相当于for(int name = 1; name < 7; name++)
-for 1 to 7
+for 1 << 7
 {
     //常规变量 数组加s
     int i = 1;
@@ -30,7 +30,7 @@ val some as string =
 {
     "random", "a", "solidworks"
 }//有{}就略去;
-foreach i in some {
+foreach i << some {
     print >> i;
 }
 
