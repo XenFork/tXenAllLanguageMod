@@ -1,5 +1,7 @@
 package union.xenfork;
 
+import union.xenfork.basic.Loop;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -9,6 +11,7 @@ import static java.util.Arrays.stream;
 import static union.xenfork.TXen.extension;
 
 public class FileLoader {
+	public final Map<String, Object> fields = new HashMap<>();
 	//写入教科书式的读取文件列表
 	private final StringBuilder sb;
 	private final List<String> lineCodes;
@@ -28,10 +31,16 @@ public class FileLoader {
 	public static int is = 0;//0模式代表field， 1模式代表method
 	public FileLoader(File file) throws IOException {
 		sb = deserialization(file);//反序列化
-		lineCodes = serialize(sb);//序列号存储
+		lineCodes = serialize(sb.toString());//序列号存储
 		for (var list : lineCodes) {
-			if (list.contains("for")) {
-
+			if (list.contains("for") || list.contains("while")) {
+				var loop = new Loop(list);
+				System.out.println(loop.getLoop_name());
+				Loop.get(loop);
+				objects.put(objects.size(), loop);
+			} else {
+				System.out.println(list);
+				objects.put(objects.size(), list);
 			}
 //			if (list.contains("=") && list.contains(">>") && !list.contains("{")) {
 //				objects.put(objects.size(),new XenField(list));
@@ -61,12 +70,11 @@ public class FileLoader {
 		return sb;
 	}
 	//序列化
-	public List<String> serialize(StringBuilder sb) {
-		String s = sb.toString();
+	public static List<String> serialize(String sb) {
 		StringBuilder line = new StringBuilder();
 		final List<String> list = new ArrayList<>();
-		for (int i = 0; i < s.length(); i++) {
-			char c = s.charAt(i);
+		for (int i = 0; i < sb.length(); i++) {
+			char c = sb.charAt(i);
 			switch (is) {
 				case 0 -> {
 					line.append(c);

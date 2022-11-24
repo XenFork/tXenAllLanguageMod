@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.*;
 
-import static union.xenfork.FileLoader.delete_note;
 import static union.xenfork.FileLoader.loadFile;
 
 public class TXen {
