@@ -11,6 +11,7 @@ public class Loop {
     private int i1,in;//mode 0时适用
     private Object o1, o2;
     private String while_pre;
+    public final int sj;
     private List<String> codes;
 
     public String getLoop_name() {
@@ -25,6 +26,21 @@ public class Loop {
     }
 
     public Loop(String str) {
+        sj = 0;
+        if (str.contains("foreach")) {
+            mode = 1;
+            loop_name = "foreach";
+        } else if (str.contains("for")) {
+            mode = 0;
+            loop_name = "for";
+        } else {
+            mode = 2;
+            loop_name = "while";
+        }
+        load(str);
+    }
+    public Loop(String str, int sj) {
+        this.sj = sj + 1;
         if (str.contains("foreach")) {
             mode = 1;
             loop_name = "foreach";
@@ -38,12 +54,16 @@ public class Loop {
         load(str);
     }
 
-    public static void get(Loop loop) {
+    public void run() {
+    }
+
+    public static void get(Loop loop, int sj) {
         loop.getObjects().forEach(object -> {
             if (object instanceof String str) {
                 System.out.println(str);
             } else if (object instanceof Loop loop1) {
-                get(loop1);
+                System.out.println("\t".repeat(Math.max(0, sj+1))+loop1.getLoop_name());
+                get(loop1, loop1.sj);
             }
         });
     }
@@ -112,7 +132,7 @@ public class Loop {
         }
         for (var temp : codes) {
             if (temp.contains("for") || temp.contains("foreach") || temp.contains("while")) {
-                objects.add(new Loop(temp));
+                objects.add(new Loop(temp, sj));
             } else {
                 objects.add(temp);
             }

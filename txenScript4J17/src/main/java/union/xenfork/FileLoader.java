@@ -12,6 +12,7 @@ import static union.xenfork.TXen.extension;
 
 public class FileLoader {
 	public final Map<String, Object> fields = new HashMap<>();
+	public final Map<String, Map<String, Object>> stringMapMap = new HashMap<>();//string为名字，第二个string为类型，object为赋值
 	//写入教科书式的读取文件列表
 	private final StringBuilder sb;
 	private final List<String> lineCodes;
@@ -36,19 +37,16 @@ public class FileLoader {
 			if (list.contains("for") || list.contains("while")) {
 				var loop = new Loop(list);
 				System.out.println(loop.getLoop_name());
-				Loop.get(loop);
+				Loop.get(loop, loop.sj);
 				objects.put(objects.size(), loop);
 			} else {
 				System.out.println(list);
 				objects.put(objects.size(), list);
 			}
-//			if (list.contains("=") && list.contains(">>") && !list.contains("{")) {
-//				objects.put(objects.size(),new XenField(list));
-//			} else {
-//				objects.put(objects.size(),new XenMethod(list));
-//			}
 		}
 	}
+
+
 	public StringBuilder deserialization(File file) throws IOException {
 	//去掉注释合并行数
 		StringBuilder sb = new StringBuilder();
