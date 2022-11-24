@@ -54,9 +54,6 @@ public class Loop {
         load(str);
     }
 
-    public void run() {
-    }
-
     public static void get(Loop loop, int sj) {
         loop.getObjects().forEach(object -> {
             if (object instanceof String str) {
@@ -137,5 +134,26 @@ public class Loop {
                 objects.add(temp);
             }
         }
+    }
+
+    @SuppressWarnings("unused")
+    public int getI1() {
+        return i1;
+    }
+    @SuppressWarnings("unused")
+    public int getIn() {
+        return in;
+    }
+    @SuppressWarnings("unused")
+    public Object getO1() {
+        return o1;
+    }
+    @SuppressWarnings("unused")
+    public Object getO2() {
+        return o2;
+    }
+    @SuppressWarnings("unused")
+    public String getWhile_pre() {
+        return while_pre;
     }
 }

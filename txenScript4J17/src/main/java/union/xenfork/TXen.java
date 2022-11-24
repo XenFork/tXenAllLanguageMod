@@ -12,6 +12,10 @@ public class TXen {
     public static void main(String[] args) throws IOException {
         //test
         init();
+    }
+    public static void init() throws IOException {
+        //注入添加后缀名
+        extension.add(".xs");
         File file = new File(System.getProperty("user.dir"), "test");
         var a = loadFile(file);
         for (var b : a) {
@@ -20,13 +24,6 @@ public class TXen {
                 var fileLoader = new FileLoader(b);
             }
         }
-//        for (var d : extension) {
-//            System.out.println(d);
-//        }
-    }
-    public static void init() {
-        //注入添加后缀名
-        extension.add(".xs");
     }
 
 
