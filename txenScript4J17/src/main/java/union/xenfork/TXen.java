@@ -2,7 +2,6 @@ package union.xenfork;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.*;
 
 import static union.xenfork.FileLoader.loadFile;

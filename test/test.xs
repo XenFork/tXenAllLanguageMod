@@ -15,15 +15,15 @@ for 1 << 7
 {
     for 2 << 14 {
         //常规变量 数组加s
-            int i = 1;
+            int i = 1;//1
             val is as ints =
             {
                 1, 3, 4, 5, 6, 10
             }
-            string j = "abc";
+            string j = "abc";//1
             bool k = true;
             long l = 0f;
-            float f = 0.1f;
+            float f = 0.1f;//1
             double d = 0.3333333333333;
             print << i , j , k , l , f , d , "end";
     }
