@@ -1,8 +1,8 @@
-// Generated from java-escape by ANTLR 4.11.1
+package union.xenfork.g4;// Generated from java-escape by ANTLR 4.11.1
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
- * This class provides an empty implementation of {@link xenCodeVisitor},
+ * This class provides an empty implementation of {@link XenCodeVisitor},
  * which can be extended to create a visitor which only needs to handle a subset
  * of the available methods.
  *
@@ -10,12 +10,12 @@ import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
  * operations with no return type.
  */
 @SuppressWarnings("CheckReturnValue")
-public class xenCodeBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements xenCodeVisitor<T> {
+public class XenCodeBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements XenCodeVisitor<T> {
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitR(xenCodeParser.RContext ctx) { return visitChildren(ctx); }
+	@Override public T visitR(XenCodeParser.RContext ctx) { return visitChildren(ctx); }
 }

@@ -1,4 +1,4 @@
-// Generated from java-escape by ANTLR 4.11.1
+package union.xenfork.g4;// Generated from java-escape by ANTLR 4.11.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
-public class xenCodeParser extends Parser {
+public class XenCodeParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.11.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -83,29 +83,29 @@ public class xenCodeParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public xenCodeParser(TokenStream input) {
+	public XenCodeParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class RContext extends ParserRuleContext {
-		public TerminalNode ID() { return getToken(xenCodeParser.ID, 0); }
+		public TerminalNode ID() { return getToken(XenCodeParser.ID, 0); }
 		public RContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_r; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof xenCodeListener ) ((xenCodeListener)listener).enterR(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterR(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof xenCodeListener ) ((xenCodeListener)listener).exitR(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitR(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof xenCodeVisitor ) return ((xenCodeVisitor<? extends T>)visitor).visitR(this);
+			if ( visitor instanceof XenCodeVisitor) return ((XenCodeVisitor<? extends T>)visitor).visitR(this);
 			else return visitor.visitChildren(this);
 		}
 	}

@@ -9,7 +9,7 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
-public class xenCodeLexer extends Lexer {
+public class XenCodeLexer extends Lexer {
 	static { RuntimeMetaData.checkVersion("4.11.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -78,13 +78,13 @@ public class xenCodeLexer extends Lexer {
 	}
 
 
-	public xenCodeLexer(CharStream input) {
+	public XenCodeLexer(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@Override
-	public String getGrammarFileName() { return "xenCode.g4"; }
+	public String getGrammarFileName() { return "XenCode.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
