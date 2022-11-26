@@ -15,4 +15,34 @@ public interface XenCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitR(XenCodeParser.RContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link XenCodeParser#fSTR}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFSTR(XenCodeParser.FSTRContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link XenCodeParser#fINT}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFINT(XenCodeParser.FINTContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link XenCodeParser#fFLOAT}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFFLOAT(XenCodeParser.FFLOATContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link XenCodeParser#fVAR}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFVAR(XenCodeParser.FVARContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link XenCodeParser#fVAL}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFVAL(XenCodeParser.FVALContext ctx);
 }

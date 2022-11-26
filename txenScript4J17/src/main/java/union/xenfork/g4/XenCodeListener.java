@@ -16,4 +16,54 @@ public interface XenCodeListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitR(XenCodeParser.RContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link XenCodeParser#fSTR}.
+	 * @param ctx the parse tree
+	 */
+	void enterFSTR(XenCodeParser.FSTRContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link XenCodeParser#fSTR}.
+	 * @param ctx the parse tree
+	 */
+	void exitFSTR(XenCodeParser.FSTRContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link XenCodeParser#fINT}.
+	 * @param ctx the parse tree
+	 */
+	void enterFINT(XenCodeParser.FINTContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link XenCodeParser#fINT}.
+	 * @param ctx the parse tree
+	 */
+	void exitFINT(XenCodeParser.FINTContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link XenCodeParser#fFLOAT}.
+	 * @param ctx the parse tree
+	 */
+	void enterFFLOAT(XenCodeParser.FFLOATContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link XenCodeParser#fFLOAT}.
+	 * @param ctx the parse tree
+	 */
+	void exitFFLOAT(XenCodeParser.FFLOATContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link XenCodeParser#fVAR}.
+	 * @param ctx the parse tree
+	 */
+	void enterFVAR(XenCodeParser.FVARContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link XenCodeParser#fVAR}.
+	 * @param ctx the parse tree
+	 */
+	void exitFVAR(XenCodeParser.FVARContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link XenCodeParser#fVAL}.
+	 * @param ctx the parse tree
+	 */
+	void enterFVAL(XenCodeParser.FVALContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link XenCodeParser#fVAL}.
+	 * @param ctx the parse tree
+	 */
+	void exitFVAL(XenCodeParser.FVALContext ctx);
 }

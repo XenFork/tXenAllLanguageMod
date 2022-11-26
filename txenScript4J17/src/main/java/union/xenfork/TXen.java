@@ -21,21 +21,44 @@ public class TXen {
     public static void main(String[] args) throws IOException {
         //test
 //        init();
-        CharStream input = CharStreams.fromString("hello world");
+        CharStream input = CharStreams.fromString("hello world\n");
         XenCodeLexer lexer = new XenCodeLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         XenCodeParser parser = new XenCodeParser(tokens);
         XenCodeParser.RContext tree = parser.r();
         XenVisitor xv = new XenVisitor();
         xv.visitR(tree);
+        input = CharStreams.fromString("int a = 1;");
+        lexer = new XenCodeLexer(input);
+        tokens = new CommonTokenStream(lexer);
+        parser = new XenCodeParser(tokens);
+        XenCodeParser.FINTContext iTree = parser.fINT();
+        xv.visitFINT(iTree);
+        input = CharStreams.fromString("float a = 0.0f;");
+        lexer = new XenCodeLexer(input);
+        tokens = new CommonTokenStream(lexer);
+        parser = new XenCodeParser(tokens);
+        XenCodeParser.FFLOATContext fTree = parser.fFLOAT();
+        xv.visitFFLOAT(fTree);
 
     }
-
     static class XenVisitor extends XenCodeBaseVisitor<Void> {
         @Override
         public Void visitR(XenCodeParser.RContext ctx) {
-            System.out.println("hello" + " " + ctx.ID());
+            System.out.println("hello" + " " + ctx.NAME());
             return super.visitR(ctx);
+        }
+
+        @Override
+        public Void visitFINT(XenCodeParser.FINTContext ctx) {
+            System.out.println("int " + ctx.NAME() + "=" + ctx.INT());
+            return super.visitFINT(ctx);
+        }
+
+        @Override
+        public Void visitFFLOAT(XenCodeParser.FFLOATContext ctx) {
+            System.out.println("float " + ctx.NAME() + "=" + ctx.FLOAT());
+            return super.visitFFLOAT(ctx);
         }
     }
     public static void init() throws IOException {
