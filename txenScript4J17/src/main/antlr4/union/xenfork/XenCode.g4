@@ -2,7 +2,7 @@ grammar XenCode;
 r   : 'hello' NAME';';
 
 //field
-field: field f | f;
+field: field field | field f | f;
 f : fSTR | fINT | fFLOAT | fDOUBLE | fBOOLEAN | fVAL | fVAR;
 fSTR : 'string' NAME '=' STRING';' | 'string' NAME';' ;
 fINT : 'int' NAME '=' INT';' | 'int' NAME';';
