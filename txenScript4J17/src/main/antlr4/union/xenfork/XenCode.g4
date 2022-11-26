@@ -9,12 +9,15 @@ fINT : 'int' NAME '=' INT';' | 'int' NAME';';
 fFLOAT: 'float' NAME '=' FLOAT';' | 'float' NAME';';
 fDOUBLE: 'double' NAME '=' DOUBLE';' | 'double' NAME';';
 fBOOLEAN: 'bool' NAME '=' BOOL';' | 'bool' NAME';';
-fVAR : 'var' NAME '=' OBJ';' ;
-fVAL : 'val' NAME '=' OBJ';' ;
+fVAR : 'var' NAME '=' (STRING | INT | FLOAT | DOUBLE | BOOL)';'
+    | 'var' NAME';'
+    | 'object' NAME '='  (STRING | INT | FLOAT | DOUBLE | BOOL)';'
+    | 'object' NAME';';//object放在var行列
+fVAL : 'val' NAME '=' (STRING | INT | FLOAT | DOUBLE | BOOL)';'
+    | 'val' NAME';' ;
 
 INT : [0-9]+ ;
 FLOAT: INT'.'INT'f';
-OBJ : STRING | INT | FLOAT;
 DOUBLE: INT'.'INT;
 BOOL: 'true' | 'false';
 NAME: [a-z]+ ;
