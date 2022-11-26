@@ -16,6 +16,12 @@ public interface XenCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitR(XenCodeParser.RContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link XenCodeParser#field}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitField(XenCodeParser.FieldContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link XenCodeParser#fSTR}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -33,6 +39,18 @@ public interface XenCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitFFLOAT(XenCodeParser.FFLOATContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link XenCodeParser#fDOUBLE}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFDOUBLE(XenCodeParser.FDOUBLEContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link XenCodeParser#fBOOLEAN}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFBOOLEAN(XenCodeParser.FBOOLEANContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link XenCodeParser#fVAR}.
 	 * @param ctx the parse tree

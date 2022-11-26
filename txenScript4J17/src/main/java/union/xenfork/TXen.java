@@ -40,13 +40,31 @@ public class TXen {
         parser = new XenCodeParser(tokens);
         XenCodeParser.FFLOATContext fTree = parser.fFLOAT();
         xv.visitFFLOAT(fTree);
-
     }
     static class XenVisitor extends XenCodeBaseVisitor<Void> {
+        @Override
+        public Void visitField(XenCodeParser.FieldContext ctx) {
+            if (ctx.fSTR().STRING() != null) {
+                System.out.println("string " + ctx.fSTR().NAME() + "="+ ctx.fSTR().STRING());
+            }
+            return super.visitField(ctx);
+        }
+
+        @Override
+        public Void visit(ParseTree tree_) {
+            return super.visit(tree_);
+        }
+
         @Override
         public Void visitR(XenCodeParser.RContext ctx) {
             System.out.println("hello" + " " + ctx.NAME());
             return super.visitR(ctx);
+        }
+
+        @Override
+        public Void visitFSTR(XenCodeParser.FSTRContext ctx) {
+            System.out.println("string " + ctx.NAME() + "="+ ctx.STRING());
+            return super.visitFSTR(ctx);
         }
 
         @Override
@@ -60,19 +78,17 @@ public class TXen {
             System.out.println("float " + ctx.NAME() + "=" + ctx.FLOAT());
             return super.visitFFLOAT(ctx);
         }
-    }
-    public static void init() throws IOException {
-        //注入添加后缀名
-//        extension.add(".xs");
-//        File file = new File(System.getProperty("user.dir"), "test");
-//        var a = loadFile(file);
-//        for (var b : a) {
-//            if (b.getName().contains(".xs")) {
-////                extension = readXenCode(b);
-//                var fileLoader = new FileLoader(b);
-//            }
-//        }
-    }
 
+        @Override
+        public Void visitFDOUBLE(XenCodeParser.FDOUBLEContext ctx) {
+            System.out.println("double " + ctx.NAME() + "=" + ctx.DOUBLE());
+            return super.visitFDOUBLE(ctx);
+        }
 
+        @Override
+        public Void visitFBOOLEAN(XenCodeParser.FBOOLEANContext ctx) {
+            System.out.println("bool " + ctx.NAME() + "=" + ctx.BOOL());
+            return super.visitFBOOLEAN(ctx);
+        }
+    }
 }

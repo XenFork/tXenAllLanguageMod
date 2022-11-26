@@ -28,6 +28,18 @@ public class XenCodeBaseListener implements XenCodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterField(XenCodeParser.FieldContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitField(XenCodeParser.FieldContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterFSTR(XenCodeParser.FSTRContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -59,6 +71,30 @@ public class XenCodeBaseListener implements XenCodeListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFFLOAT(XenCodeParser.FFLOATContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFDOUBLE(XenCodeParser.FDOUBLEContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFDOUBLE(XenCodeParser.FDOUBLEContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFBOOLEAN(XenCodeParser.FBOOLEANContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFBOOLEAN(XenCodeParser.FBOOLEANContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

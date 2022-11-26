@@ -17,6 +17,16 @@ public interface XenCodeListener extends ParseTreeListener {
 	 */
 	void exitR(XenCodeParser.RContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link XenCodeParser#field}.
+	 * @param ctx the parse tree
+	 */
+	void enterField(XenCodeParser.FieldContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link XenCodeParser#field}.
+	 * @param ctx the parse tree
+	 */
+	void exitField(XenCodeParser.FieldContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link XenCodeParser#fSTR}.
 	 * @param ctx the parse tree
 	 */
@@ -46,6 +56,26 @@ public interface XenCodeListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFFLOAT(XenCodeParser.FFLOATContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link XenCodeParser#fDOUBLE}.
+	 * @param ctx the parse tree
+	 */
+	void enterFDOUBLE(XenCodeParser.FDOUBLEContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link XenCodeParser#fDOUBLE}.
+	 * @param ctx the parse tree
+	 */
+	void exitFDOUBLE(XenCodeParser.FDOUBLEContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link XenCodeParser#fBOOLEAN}.
+	 * @param ctx the parse tree
+	 */
+	void enterFBOOLEAN(XenCodeParser.FBOOLEANContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link XenCodeParser#fBOOLEAN}.
+	 * @param ctx the parse tree
+	 */
+	void exitFBOOLEAN(XenCodeParser.FBOOLEANContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link XenCodeParser#fVAR}.
 	 * @param ctx the parse tree
