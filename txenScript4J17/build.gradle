@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'antlr'
 }
 
 group 'union.xenfork'
@@ -10,4 +11,6 @@ repositories {
 }
 
 dependencies {
+//    implementation 'org.antlr:antlr4:4.11.1'
+    antlr('org.antlr:antlr4:4.11.1')
 }
