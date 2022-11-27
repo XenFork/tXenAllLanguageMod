@@ -19,19 +19,24 @@ for 1 << 7
             val is as ints =
             {
                 1, 3, 4, 5, 6, 10
-            }
+            };
             string j = "abc";//1
             bool k = true;
-            long l = 0f;
+            long l = 0l;
             float f = 0.1f;//1
             double d = 0.3333333333333;
             print << i , j , k , l , f , d , "end";
     }
 }
-val some as string =
+val some as strings =
 {
     "random", "a", "solidworks"
-}//有{}就略去;
+};
+
+var some as strings =
+{
+    "random", "a", "solidworks"
+};
 foreach i << some {
     print << i;
 }

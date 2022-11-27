@@ -21,7 +21,7 @@ public class TXen {
     public static void main(String[] args) throws IOException {
         //test
 //        init();
-        CharStream input = CharStreams.fromString("hello world\n");
+        CharStream input = CharStreams.fromString("hello world;");
         XenCodeLexer lexer = new XenCodeLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         XenCodeParser parser = new XenCodeParser(tokens);
@@ -40,55 +40,121 @@ public class TXen {
         parser = new XenCodeParser(tokens);
         XenCodeParser.FFLOATContext fTree = parser.fFLOAT();
         xv.visitFFLOAT(fTree);
+        input = CharStreams.fromString("string a = \"abc\";");
+        lexer = new XenCodeLexer(input);
+        tokens = new CommonTokenStream(lexer);
+        parser = new XenCodeParser(tokens);
+        XenCodeParser.FSTRContext sTree = parser.fSTR();
+        xv.visitFSTR(sTree);
+        input = CharStreams.fromString("# 1;");
+        lexer = new XenCodeLexer(input);
+        tokens = new CommonTokenStream(lexer);
+        parser = new XenCodeParser(tokens);
+        XenCodeParser.FIMPORTContext imTree = parser.fIMPORT();
+        xv.visitFIMPORT(imTree);
+        input = CharStreams.fromString("val a = true;");
+        lexer = new XenCodeLexer(input);
+        tokens = new CommonTokenStream(lexer);
+        parser = new XenCodeParser(tokens);
+        XenCodeParser.FVALContext vTree = parser.fVAL();
+        xv.visitFVAL(vTree);
     }
     static class XenVisitor extends XenCodeBaseVisitor<Void> {
+        @SuppressWarnings("InfiniteRecursion")
         @Override
         public Void visitField(XenCodeParser.FieldContext ctx) {
-            if (ctx.fSTR().STRING() != null) {
-                System.out.println("string " + ctx.fSTR().NAME() + "="+ ctx.fSTR().STRING());
-            }
+            visitField(ctx.field());
+            visitF(ctx.f());
             return super.visitField(ctx);
         }
 
         @Override
-        public Void visit(ParseTree tree_) {
-            return super.visit(tree_);
+        public Void visitF(XenCodeParser.FContext ctx) {
+            if (!ctx.fBOOLEAN().isEmpty()) {
+                visitFBOOLEAN(ctx.fBOOLEAN());
+            } else if (!ctx.fSTR().isEmpty()) {
+                visitFSTR(ctx.fSTR());
+            } else if (!ctx.fINT().isEmpty()) {
+                visitFINT(ctx.fINT());
+            } else if (!ctx.fIMPORT().isEmpty()) {
+                visitFIMPORT(ctx.fIMPORT());
+            } else if (!ctx.fFLOAT().isEmpty()) {
+                visitFFLOAT(ctx.fFLOAT());
+            } else if (!ctx.fVAL().isEmpty()) {
+                visitFVAL(ctx.fVAL());
+            } else if (!ctx.fVAR().isEmpty()) {
+                visitFVAR(ctx.fVAR());
+            } else if (!ctx.fDOUBLE().isEmpty()) {
+                visitFDOUBLE(ctx.fDOUBLE());
+            }
+
+            return super.visitF(ctx);
         }
 
         @Override
-        public Void visitR(XenCodeParser.RContext ctx) {
-            System.out.println("hello" + " " + ctx.NAME());
-            return super.visitR(ctx);
+        public Void visitFBOOLEAN(XenCodeParser.FBOOLEANContext ctx) {
+            System.out.println(ctx.NAME() + "=" + ctx.BOOL());
+            return super.visitFBOOLEAN(ctx);
         }
 
         @Override
         public Void visitFSTR(XenCodeParser.FSTRContext ctx) {
-            System.out.println("string " + ctx.NAME() + "="+ ctx.STRING());
+            System.out.println(ctx.NAME() + "=" + ctx.STRING().toString());
             return super.visitFSTR(ctx);
         }
 
         @Override
         public Void visitFINT(XenCodeParser.FINTContext ctx) {
-            System.out.println("int " + ctx.NAME() + "=" + ctx.INT());
+            System.out.println(ctx.NAME() + "=" + ctx.INT());
             return super.visitFINT(ctx);
         }
 
         @Override
+        public Void visitFIMPORT(XenCodeParser.FIMPORTContext ctx) {
+            if (!ctx.NAME().isEmpty()) {
+                StringBuilder sb = new StringBuilder();
+                ctx.NAME().forEach(terminalNode -> {
+                    sb.append(terminalNode.toString()).append("   ");
+                });
+                System.out.println(sb);
+            } else {
+                System.out.println(ctx.INT());
+            }
+            return super.visitFIMPORT(ctx);
+        }
+
+        @Override
         public Void visitFFLOAT(XenCodeParser.FFLOATContext ctx) {
-            System.out.println("float " + ctx.NAME() + "=" + ctx.FLOAT());
+            System.out.println(ctx.NAME() + "=" + ctx.FLOAT());
             return super.visitFFLOAT(ctx);
         }
 
         @Override
-        public Void visitFDOUBLE(XenCodeParser.FDOUBLEContext ctx) {
-            System.out.println("double " + ctx.NAME() + "=" + ctx.DOUBLE());
-            return super.visitFDOUBLE(ctx);
+        public Void visitFVAL(XenCodeParser.FVALContext ctx) {
+            StringBuilder sb = new StringBuilder(ctx.NAME().toString() + "=");
+            isNotNull(sb,
+                    ctx.BOOL(), ctx.STRING(),
+                    ctx.DOUBLE(), ctx.FLOAT(),
+                    ctx.INT(), ctx.STRING());
+            System.out.println(sb);
+            return super.visitFVAL(ctx);
         }
 
         @Override
-        public Void visitFBOOLEAN(XenCodeParser.FBOOLEANContext ctx) {
-            System.out.println("bool " + ctx.NAME() + "=" + ctx.BOOL());
-            return super.visitFBOOLEAN(ctx);
+        public Void visitFVAR(XenCodeParser.FVARContext ctx) {
+            StringBuilder sb = new StringBuilder(ctx.NAME().toString() + "=");
+            isNotNull(sb,
+                    ctx.BOOL(), ctx.STRING(),
+                    ctx.DOUBLE(), ctx.FLOAT(),
+                    ctx.INT(), ctx.STRING());
+            System.out.println(sb);
+            return super.visitFVAR(ctx);
+        }
+
+        public void isNotNull(StringBuilder sb, TerminalNode... nodes) {
+            for (var node : nodes) {
+                if (node != null) sb.append(node);
+            }
         }
     }
 }

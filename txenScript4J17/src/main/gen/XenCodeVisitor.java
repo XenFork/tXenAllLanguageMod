@@ -22,6 +22,18 @@ public interface XenCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitField(XenCodeParser.FieldContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link XenCodeParser#f}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitF(XenCodeParser.FContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link XenCodeParser#fIMPORT}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFIMPORT(XenCodeParser.FIMPORTContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link XenCodeParser#fSTR}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
