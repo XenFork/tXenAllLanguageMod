@@ -7,7 +7,7 @@ import union.xenfork.g4.XenCodeLexer;
 import union.xenfork.g4.XenCodeParser;
 
 public class XenLoad {
-	private int priority = -1;
+	private int priority;
 	public void loadXenScript(String str) {
 		CharStream input = CharStreams.fromString(str);
 		XenCodeLexer lexer = new XenCodeLexer(input);

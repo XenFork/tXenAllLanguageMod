@@ -18,15 +18,12 @@ import java.util.function.Function;
 import static union.xenfork.FileLoader.loadFile;
 
 public class TXen {
-
-
-    public record Record(String className, Object value) {}
     public static Map<Integer, FileLoader> fileLoaderMap = new HashMap<>();
     private static int i = 0, j = 0;
     public static List<String> extension = new ArrayList<>();
     public static Map<String, Record> gobal = new HashMap<>();//全局变量
     public static void main(String[] args) throws IOException {
-
+        extension.add(".xs");
         var files = loadFile(new File(System.getProperty("user.dir"), "test"));
         XenLoad tXen = new XenLoad();
         List<File> tmp = new ArrayList<>(files);
