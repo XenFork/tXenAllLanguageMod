@@ -28,15 +28,15 @@ for 1 << 7
             print << i , j , k , l , f , d , "end";
     }
 }
+
 val some as strings =
 {
     "random", "a", "solidworks"
 };
 
-var some as strings =
-{
-    "random", "a", "solidworks"
-};
+some.add("some");
+
+
 foreach i << some {
     print << i;
 }

@@ -16,7 +16,13 @@ public class XenLoad {
 		XenCodeParser.AllContext tree = parser.all();
 		XenVisitor xv = new XenVisitor();
 		xv.visitAll(tree);
-		xv.val.forEach((s, record) -> System.out.println(record.className() + " " + s + " = " + record.value()));
+		xv.val.forEach((s, o) -> {
+			if (o instanceof XenVisitor.Record record) {
+				System.out.println(record.className() + " " + s + " = " + record.value());
+			} else if (o instanceof XenVisitor.Record_ record) {
+				System.out.println(record.className() + " " + s + " = " + record.value());
+			}
+		});
 	}
 
 	public void loadPriority(String str) {

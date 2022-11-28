@@ -13,7 +13,7 @@ tmp:
 imports |
 str | int | float | double | long | boolean
 | strings | ints | floats | doubles | longs | booleans
-| val | var;
+| val | var | add | addAll;
 str: 'string' NAME ('=' STRING | )';';
 int: 'int' NAME ('=' INT | )';' ;
 float: 'float' NAME ('=' FLOAT | )';';
@@ -48,6 +48,8 @@ var: 'var' NAME
 | 'booleans' ('=' '{' ((BOOL ',')+BOOL | BOOL | ) '}' | )
 | 'bools' ('=' '{' ((BOOL ',')+BOOL | BOOL | ) '}' | ) ) )';';
 imports: '#' (INT | NAME ('>' NAME | )) ';';
+add: NAME'.''add''(' (STRING | INT | FLOAT | DOUBLE | LONG | BOOL) ')'';' ;
+addAll: NAME'.''addAll''(' (NAME | (STRING',')+STRING | (INT',')+INT | (FLOAT',')+FLOAT | (DOUBLE',')+DOUBLE | (LONG',')+LONG | (BOOL',')+BOOL) ')'';' ;
 //regin stop
 //regin start
 allMethod: allMethod m | m ;
