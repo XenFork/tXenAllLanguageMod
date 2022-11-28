@@ -1,7 +1,7 @@
 // i#代表import >代表as 相当于 import ItemStack as a, #后面写数字代表优先级0为最大有限，表示第几个调用
 # 1;
 # ItemStack > a;
-int k = 3;
+int aaa = 3;
 var me = "It's me";
 while k <= 10
 {

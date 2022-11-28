@@ -1,16 +1,21 @@
 package union.xenfork;
 
+import org.antlr.v4.runtime.tree.TerminalNode;
 import union.xenfork.g4.XenCodeBaseVisitor;
 import union.xenfork.g4.XenCodeParser;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class XenVisitor extends XenCodeBaseVisitor<Void> {
 
 	public record Record(String className, Object value) {}
 	private int priority = -1;
 	public Map<String, Record> val = new HashMap<>();//局部变量
+	public Map<String, String> imports = new HashMap<>();
 	//第一个string表示name 第二个string表示int val之类的头， Object存各类参数
 
 	@Override
@@ -51,9 +56,7 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 		else if (ctx.strings()!= null) visitStrings(ctx.strings());
 		else if (ctx.val()!= null) visitVal(ctx.val());
 		else if (ctx.var()!= null) visitVar(ctx.var());
-		else if (ctx.imports()!= null) {
-			visitImports(ctx.imports());
-		}
+		else if (ctx.imports()!= null) visitImports(ctx.imports());
 		return super.visitTmp(ctx);
 	}
 
@@ -65,7 +68,7 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 
 	@Override
 	public Void visitBooleans(XenCodeParser.BooleansContext ctx) {
-		val.put(ctx.NAME().toString(), new Record("booleans", ctx.BOOL()));
+		val.put(ctx.NAME().toString(), new Record("booleans", ctx.BOOL().stream().map(Object::toString).toList()));
 		return super.visitBooleans(ctx);
 	}
 
@@ -77,7 +80,7 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 
 	@Override
 	public Void visitDoubles(XenCodeParser.DoublesContext ctx) {
-		val.put(ctx.NAME().toString(), new Record("doubles", ctx.DOUBLE()));
+		val.put(ctx.NAME().toString(), new Record("doubles", ctx.DOUBLE().stream().map(Object::toString).toList()));
 		return super.visitDoubles(ctx);
 	}
 
@@ -89,7 +92,7 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 
 	@Override
 	public Void visitFloats(XenCodeParser.FloatsContext ctx) {
-		val.put(ctx.NAME().toString(), new Record("floats", ctx.FLOAT()));
+		val.put(ctx.NAME().toString(), new Record("floats", ctx.FLOAT().stream().map(Object::toString).toList()));
 		return super.visitFloats(ctx);
 	}
 
@@ -101,7 +104,7 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 
 	@Override
 	public Void visitInts(XenCodeParser.IntsContext ctx) {
-		val.put(ctx.NAME().toString(), new Record("ints", ctx.INT()));
+		val.put(ctx.NAME().toString(), new Record("ints", ctx.INT().stream().map(Object::toString).toList()));
 		return super.visitInts(ctx);
 	}
 
@@ -113,7 +116,7 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 
 	@Override
 	public Void visitLongs(XenCodeParser.LongsContext ctx) {
-		val.put(ctx.NAME().toString(), new Record("longs", ctx.LONG()));
+		val.put(ctx.NAME().toString(), new Record("longs", ctx.LONG().stream().map(Object::toString).toList()));
 		return super.visitLongs(ctx);
 	}
 
@@ -125,13 +128,13 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 
 	@Override
 	public Void visitStrings(XenCodeParser.StringsContext ctx) {
-		val.put(ctx.NAME().toString(), new Record("strings", ctx.STRING()));
+		val.put(ctx.NAME().toString(), new Record("strings", ctx.STRING().stream().map(Object::toString).toList()));
 		return super.visitStrings(ctx);
 	}
 
 	@Override
 	public Void visitImports(XenCodeParser.ImportsContext ctx) {
-		if (ctx.NAME() != null) {
+		if (ctx.NAME() != null && !ctx.NAME().isEmpty()) {
 			int t = 0;
 			String name = "";
 			Object value= null;
@@ -144,7 +147,7 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 				}
 			}
 			val.put(name, new Record("import", value));
-		} else {
+		} else if (ctx.NAME() != null && ctx.NAME().isEmpty()) {
 			priority = ctx.INT().getChildCount();
 		}
 
@@ -153,36 +156,36 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 
 	@Override
 	public Void visitVal(XenCodeParser.ValContext ctx) {
-		if (ctx.BOOL()!= null) {
-			val.put(ctx.toString(), new Record("val", ctx.BOOL()));
-		} else if (ctx.INT()!= null) {
-			val.put(ctx.toString(), new Record("val", ctx.INT()));
-		} else if (ctx.DOUBLE()!= null) {
-			val.put(ctx.toString(), new Record("val", ctx.DOUBLE()));
-		} else if (ctx.FLOAT()!= null) {
-			val.put(ctx.toString(), new Record("val", ctx.FLOAT()));
-		} else if (ctx.LONG()!= null) {
-			val.put(ctx.toString(), new Record("val", ctx.LONG()));
-		} else if (ctx.STRING()!= null) {
-			val.put(ctx.toString(), new Record("val", ctx.STRING()));
+		if (ctx.BOOL()!= null && !ctx.BOOL().isEmpty()) {
+			val.put(ctx.NAME().toString(), new Record("val", ctx.BOOL().stream().map(Object::toString).toList()));
+		} else if (ctx.INT()!= null && !ctx.INT().isEmpty()) {
+			val.put(ctx.NAME().toString(), new Record("val", ctx.INT().stream().map(Object::toString).toList()));
+		} else if (ctx.DOUBLE()!= null && !ctx.DOUBLE().isEmpty()) {
+			val.put(ctx.NAME().toString(), new Record("val", ctx.DOUBLE().stream().map(Object::toString).toList()));
+		} else if (ctx.FLOAT()!= null && !ctx.FLOAT().isEmpty()) {
+			val.put(ctx.NAME().toString(), new Record("val", ctx.FLOAT().stream().map(Object::toString).toList()));
+		} else if (ctx.LONG()!= null && !ctx.LONG().isEmpty()) {
+			val.put(ctx.NAME().toString(), new Record("val", ctx.LONG().stream().map(TerminalNode::toString).toList()));
+		} else if (ctx.STRING()!= null && !ctx.STRING().isEmpty()) {
+			val.put(ctx.NAME().toString(), new Record("var", ctx.STRING().stream().map(TerminalNode::toString).toList()));
 		}
 		return super.visitVal(ctx);
 	}
 
 	@Override
 	public Void visitVar(XenCodeParser.VarContext ctx) {
-		if (ctx.BOOL()!= null) {
-			val.put(ctx.toString(), new Record("var", ctx.BOOL()));
-		} else if (ctx.INT()!= null) {
-			val.put(ctx.toString(), new Record("var", ctx.INT()));
-		} else if (ctx.DOUBLE()!= null) {
-			val.put(ctx.toString(), new Record("var", ctx.DOUBLE()));
-		} else if (ctx.FLOAT()!= null) {
-			val.put(ctx.toString(), new Record("var", ctx.FLOAT()));
-		} else if (ctx.LONG()!= null) {
-			val.put(ctx.toString(), new Record("var", ctx.LONG()));
-		} else if (ctx.STRING()!= null) {
-			val.put(ctx.toString(), new Record("var", ctx.STRING()));
+		if (ctx.BOOL()!= null && !ctx.BOOL().isEmpty()) {
+			val.put(ctx.NAME().toString(), new Record("var", ctx.BOOL().stream().map(Object::toString).toList()));
+		} else if (ctx.INT()!= null && !ctx.INT().isEmpty()) {
+			val.put(ctx.NAME().toString(), new Record("var", ctx.INT().stream().map(Object::toString).toList()));
+		} else if (ctx.DOUBLE()!= null && !ctx.DOUBLE().isEmpty()) {
+			val.put(ctx.NAME().toString(), new Record("var", ctx.DOUBLE().stream().map(Object::toString).toList()));
+		} else if (ctx.FLOAT()!= null && !ctx.FLOAT().isEmpty()) {
+			val.put(ctx.NAME().toString(), new Record("var", ctx.FLOAT().stream().map(Object::toString).toList()));
+		} else if (ctx.LONG()!= null && !ctx.LONG().isEmpty()) {
+			val.put(ctx.NAME().toString(), new Record("var", ctx.LONG().stream().map(TerminalNode::toString).toList()));
+		} else if (ctx.STRING()!= null && !ctx.STRING().isEmpty()) {
+			val.put(ctx.NAME().toString(), new Record("var", ctx.STRING().stream().map(TerminalNode::toString).toList()));
 		}
 		return super.visitVar(ctx);
 	}

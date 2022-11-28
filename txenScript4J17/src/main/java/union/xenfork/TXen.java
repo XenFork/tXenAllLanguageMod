@@ -30,7 +30,7 @@ public class TXen {
         while (!tmp.isEmpty()) {
             for (var file : files) {
                 FileLoader fileLoader = new FileLoader(file);
-                tXen.loadXenScript(fileLoader.toString());
+                tXen.loadPriority(fileLoader.toString());
                 if (tXen.getPriority()==i && tXen.getPriority() >= 0) {
                     if (!fileLoaderMap.containsKey(i)) {
                         fileLoaderMap.put(j + i, fileLoader);
@@ -61,6 +61,7 @@ public class TXen {
 
         for (var map : fileLoaderMap.values()) {
             tXen.loadXenScript(map.toString());
+
         }
     }
 

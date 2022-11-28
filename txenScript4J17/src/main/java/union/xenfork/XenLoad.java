@@ -16,6 +16,17 @@ public class XenLoad {
 		XenCodeParser.AllContext tree = parser.all();
 		XenVisitor xv = new XenVisitor();
 		xv.visitAll(tree);
+		xv.val.forEach((s, record) -> System.out.println(record.className() + " " + s + " = " + record.value()));
+	}
+
+	public void loadPriority(String str) {
+		CharStream input = CharStreams.fromString(str);
+		XenCodeLexer lexer = new XenCodeLexer(input);
+		CommonTokenStream tokens = new CommonTokenStream(lexer);
+		XenCodeParser parser = new XenCodeParser(tokens);
+		XenCodeParser.ImportsContext tree = parser.imports();
+		XenVisitor xv = new XenVisitor();
+		xv.visitImports(tree);
 		priority = xv.getPriority();
 	}
 
