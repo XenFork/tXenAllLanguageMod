@@ -34,7 +34,11 @@ val some as strings =
     "random", "a", "solidworks"
 };
 
-some.add("some");
+strings test1 = {
+    "abd", "acc", "adw"
+}
+
+test1.add("some");
 
 
 foreach i << some {

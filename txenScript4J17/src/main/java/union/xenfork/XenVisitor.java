@@ -14,7 +14,8 @@ import java.util.stream.Collectors;
 public class XenVisitor extends XenCodeBaseVisitor<Void> {
 
 	public record Record(String className, String value) {}
-	public record Record_(String className, List<String> value) {}
+	public record Record_(String className, List<String> value) {
+	}
 	private int priority = -1;
 	public Map<String, Object> val = new HashMap<>();//局部变量
 	//第一个string表示name 第二个string表示int val之类的头， Object存各类参数
@@ -191,47 +192,6 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 			val.put(ctx.NAME().toString(), new Record_("var", ctx.STRING().stream().map(TerminalNode::toString).toList()));
 		}
 		return super.visitVar(ctx);
-	}
-
-	@Override
-	public Void visitAdd(XenCodeParser.AddContext ctx) {
-		val.forEach((s, object) -> {
-			invoke(object, s,"strings" , ctx.NAME(), ctx.STRING());
-			invoke(object, s, "ints", ctx.NAME(), ctx.INT());
-			invoke(object, s, "floats", ctx.NAME(), ctx.FLOAT());
-			invoke(object, s, "doubles", ctx.NAME(), ctx.DOUBLE());
-			invoke(object, s, "longs", ctx.NAME(), ctx.LONG());
-			invoke(object, s, "booleans", ctx.NAME(), ctx.BOOL());
-		});
-		return super.visitAdd(ctx);
-	}
-
-	@Override
-	public Void visitAddAll(XenCodeParser.AddAllContext ctx) {
-		val.forEach((s, object) -> {
-			invoke1(object, s,"strings" , ctx.NAME().toString(), ctx.STRING());
-			invoke1(object, s, "ints", ctx.NAME().toString(), ctx.INT());
-			invoke1(object, s, "floats", ctx.NAME().toString(), ctx.FLOAT());
-			invoke1(object, s, "doubles", ctx.NAME().toString(), ctx.DOUBLE());
-			invoke1(object, s, "longs", ctx.NAME().toString(), ctx.LONG());
-			invoke1(object, s, "booleans", ctx.NAME().toString(), ctx.BOOL());
-		});
-		return super.visitAddAll(ctx);
-	}
-
-	public void invoke1(Object object, String s, String name, String ctx, List<TerminalNode> ctx2) {
-		if (object instanceof Record_ record && s.equals(ctx) && record.className.equals(name)) {
-			record.value.addAll(ctx2.stream().map(TerminalNode::toString).toList());
-//			val.put(s, new Record_(name, record.value));
-		}
-
-	}
-
-	public void invoke(Object object, String s, String name, TerminalNode ctx, TerminalNode ctx2) {
-		if (object instanceof Record_ record && s.equals(ctx.toString()) && record.className.equals(name)) {
-			record.value.add(ctx2.toString());
-//			val.put(s, new Record_(name, record.value));
-		}
 	}
 
 	@Override
