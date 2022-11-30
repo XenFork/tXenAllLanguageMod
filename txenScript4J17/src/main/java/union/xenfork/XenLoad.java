@@ -1,10 +1,7 @@
 package union.xenfork;
 
-import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.CharStreams;
-import org.antlr.v4.runtime.CommonTokenStream;
-import union.xenfork.g4.XenCodeLexer;
-import union.xenfork.g4.XenCodeParser;
+import org.antlr.v4.runtime.*;
+import union.xenfork.g4.*;
 
 public class XenLoad {
 	private int priority;
