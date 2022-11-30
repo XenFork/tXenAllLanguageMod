@@ -1,18 +1,23 @@
 grammar XenCode;
 
+options {
+    language=Java;
+}
+
 LINE_COMMENT : '//' .*? '\n' -> skip;
 COMMENT : '/*' .*? '*/' -> skip;
 
-all: all allMethod | all allField | allMethod | allField;
+all: (str_ | int_ | float_ | double_ | long_ | boolean_ | tmp | m)+;
+str_: str | strings;
+int_: int | ints;
+float_: float | floats;
+double_: double | doubles;
+long_: long | longs ;
+boolean_: boolean | booleans;
 
-
-//regin start
 //重写
-allField: allField tmp | tmp ;
 tmp:
-imports |
-str | int | float | double | long | boolean
-| strings | ints | floats | doubles | longs | booleans
+imports
 | val | var | add | addAll;
 str: 'string' NAME ('=' STRING | )';';
 int: 'int' NAME ('=' INT | )';' ;
@@ -52,7 +57,6 @@ add: NAME'.''add''(' (STRING | INT | FLOAT | DOUBLE | LONG | BOOL) ')'';' ;
 addAll: NAME'.''addAll''(' (NAME | (STRING',')+STRING | (INT',')+INT | (FLOAT',')+FLOAT | (DOUBLE',')+DOUBLE | (LONG',')+LONG | (BOOL',')+BOOL) ')'';' ;
 //regin stop
 //regin start
-allMethod: allMethod m | m ;
 m: while | for | foreach | print;
 while: 'while' NAME WHILE_BOOL INT '{' (all | ) '}' ;
 for: 'for' NAME INT '<<' INT '{' (all | ) '}' ;
