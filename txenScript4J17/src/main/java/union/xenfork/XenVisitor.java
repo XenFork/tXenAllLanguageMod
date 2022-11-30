@@ -18,11 +18,17 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 	}
 	private int priority = -1;
 	public Map<String, String> stringMap = new HashMap<>();//存储string变量
+	public Map<String, List<String>> stringsMap = new HashMap<>();//存储strings变量
 	public Map<String, Boolean> booleanMap = new HashMap<>();//存储boolean变量
+	public Map<String, List<Boolean>> booleansMap = new HashMap<>();//存储boolean变量
 	public Map<String, Float> floatMap = new HashMap<>();
+	public Map<String, List<Float>> floatsMap = new HashMap<>();
 	public Map<String, Double> doubleMap = new HashMap<>();
+	public Map<String, List<Double>> doublesMap = new HashMap<>();
 	public Map<String, Integer> integerMap = new HashMap<>();
+	public Map<String, List<Integer>> integersMap = new HashMap<>();
 	public Map<String, Long> longMap = new HashMap<>();
+	public Map<String, List<Long>> longsMap = new HashMap<>();
 	public Map<String, String> nameIsClassNameMap = new HashMap<>();//存储变量名字和类型
  	public Map<String, Object> val = new HashMap<>();//局部变量
 	//第一个string表示name 第二个string表示int val之类的头， Object存各类参数
@@ -80,7 +86,8 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 
 	@Override
 	public Void visitBooleans(XenCodeParser.BooleansContext ctx) {
-		val.put(ctx.NAME().toString(), new Record_("booleans", ctx.BOOL().stream().map(Object::toString).toList()));
+		booleansMap.put(ctx.NAME().toString(), ctx.BOOL().stream().map(TerminalNode::toString).map(Boolean::valueOf).toList());
+		nameIsClassNameMap.put(ctx.NAME().toString(), "booleans");
 		return super.visitBooleans(ctx);
 	}
 
@@ -93,14 +100,15 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 
 	@Override
 	public Void visitDoubles(XenCodeParser.DoublesContext ctx) {
-		val.put(ctx.NAME().toString(), new Record_("doubles", ctx.DOUBLE().stream().map(Object::toString).toList()));
+		doublesMap.put(ctx.NAME().toString(), ctx.DOUBLE().stream().map(TerminalNode::toString).map(Double::valueOf).toList());
+		nameIsClassNameMap.put(ctx.NAME().toString(), "doubles");
 		return super.visitDoubles(ctx);
 	}
 
 	@Override
 	public Void visitFloat(XenCodeParser.FloatContext ctx) {
 		floatMap.put(ctx.NAME().toString(), Float.valueOf(ctx.FLOAT().toString()));
-		val.put(ctx.NAME().toString(), new Record("float", ctx.FLOAT().toString()));
+		nameIsClassNameMap.put(ctx.NAME().toString(), "float");
 		return super.visitFloat(ctx);
 	}
 
@@ -145,7 +153,8 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 
 	@Override
 	public Void visitStrings(XenCodeParser.StringsContext ctx) {
-		val.put(ctx.NAME().toString(), new Record_("strings", ctx.STRING().stream().map(Object::toString).toList()));
+		stringsMap.put(ctx.NAME().toString(), ctx.STRING().stream().map(TerminalNode::toString).toList());
+		nameIsClassNameMap.put(ctx.NAME().toString(), "strings");
 		return super.visitStrings(ctx);
 	}
 
