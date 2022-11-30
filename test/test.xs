@@ -11,9 +11,9 @@ while k <= 10
     print /*a b c d e f g*/ << k;
 }
 // 相当于for(int name = 1; name < 7; name++)
-for 1 << 7
+for a 1 << 7
 {
-    for 2 << 14 {
+    for b 2 << 14 {
         //常规变量 数组加s
             int i = 1;//1
             val is as ints =
@@ -41,7 +41,7 @@ strings test1 = {
 test1.add("some");
 
 
-foreach i << some {
+foreach i << test1 {
     print << i;
 }
 

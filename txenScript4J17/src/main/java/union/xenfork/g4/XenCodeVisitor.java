@@ -166,6 +166,12 @@ public interface XenCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPrint(XenCodeParser.PrintContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link XenCodeParser#priority}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPriority(XenCodeParser.PriorityContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link XenCodeParser#r}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

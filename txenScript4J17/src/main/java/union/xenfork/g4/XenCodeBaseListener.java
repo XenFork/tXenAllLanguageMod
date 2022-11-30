@@ -328,6 +328,18 @@ public class XenCodeBaseListener implements XenCodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterPriority(XenCodeParser.PriorityContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPriority(XenCodeParser.PriorityContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterR(XenCodeParser.RContext ctx) { }
 	/**
 	 * {@inheritDoc}

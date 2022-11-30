@@ -20,9 +20,6 @@ public class XenLoad {
 				System.out.println(record.className() + " " + s + " = " + record.value());
 			}
 		});
-		xv.stringsMap.forEach((s, strings) -> {
-			System.out.println(s + "=" + strings);
-		});
 	}
 
 	public void loadPriority(String str) {
@@ -30,10 +27,10 @@ public class XenLoad {
 		XenCodeLexer lexer = new XenCodeLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		XenCodeParser parser = new XenCodeParser(tokens);
-		XenCodeParser.ImportsContext tree = parser.imports();
-		XenVisitor xv = new XenVisitor();
-		xv.visitImports(tree);
-		priority = xv.getPriority();
+		XenCodeParser.PriorityContext tree = parser.priority();
+		PriorityVisitor pv = new PriorityVisitor();
+		pv.visitPriority(tree);
+		priority = pv.getPriority();
 	}
 
 	public int getPriority() {

@@ -54,11 +54,12 @@ addAll: NAME'.''addAll''(' (NAME | (STRING',')+STRING | (INT',')+INT | (FLOAT','
 //regin start
 allMethod: allMethod m | m ;
 m: while | for | foreach | print;
-while: 'while' NAME WHILE_BOOL INT '{' all '}' ;
-for: 'for' INT '<<' INT '{' all '}' ;
-foreach: 'foreach' NAME '<<' NAME '{' all '}' ;
+while: 'while' NAME WHILE_BOOL INT '{' (all | ) '}' ;
+for: 'for' NAME INT '<<' INT '{' (all | ) '}' ;
+foreach: 'foreach' NAME '<<' NAME '{' (all | ) '}' ;
 print:  'print'('<<' NAME)+ ';'| 'print' '<<' (NAME',' |(STRING|INT|FLOAT|DOUBLE|BOOL) ',')+(NAME |(STRING|INT|FLOAT|DOUBLE|BOOL))';';
 //regin stop
+priority: '#' INT';' ;
 INT : [0-9]+ ;
 WHILE_BOOL: '<=' | '>=' | '>' | '<' | '==' | '<>' | '!=';
 FLOAT: INT'.'INT('f' | 'F');

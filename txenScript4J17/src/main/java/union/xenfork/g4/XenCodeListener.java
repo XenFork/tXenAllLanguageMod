@@ -267,6 +267,16 @@ public interface XenCodeListener extends ParseTreeListener {
 	 */
 	void exitPrint(XenCodeParser.PrintContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link XenCodeParser#priority}.
+	 * @param ctx the parse tree
+	 */
+	void enterPriority(XenCodeParser.PriorityContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link XenCodeParser#priority}.
+	 * @param ctx the parse tree
+	 */
+	void exitPriority(XenCodeParser.PriorityContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link XenCodeParser#r}.
 	 * @param ctx the parse tree
 	 */

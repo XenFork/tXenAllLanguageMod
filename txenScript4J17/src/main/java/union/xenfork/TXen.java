@@ -60,8 +60,8 @@ public class TXen {
         }
 
         for (var map : fileLoaderMap.values()) {
+            System.out.println(map);
             tXen.loadXenScript(map.toString());
-
         }
     }
 
