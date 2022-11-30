@@ -4,6 +4,7 @@
 
 
 */build/
+*/src/main/gen
 # Ignore Gradle GUI config
 gradle-app.setting
 
