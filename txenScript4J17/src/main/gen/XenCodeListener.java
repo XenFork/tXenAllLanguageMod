@@ -247,6 +247,16 @@ public interface XenCodeListener extends ParseTreeListener {
 	 */
 	void exitFor(XenCodeParser.ForContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link XenCodeParser#foreach}.
+	 * @param ctx the parse tree
+	 */
+	void enterForeach(XenCodeParser.ForeachContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link XenCodeParser#foreach}.
+	 * @param ctx the parse tree
+	 */
+	void exitForeach(XenCodeParser.ForeachContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link XenCodeParser#print}.
 	 * @param ctx the parse tree
 	 */

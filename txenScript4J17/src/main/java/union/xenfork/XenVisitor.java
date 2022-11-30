@@ -1,15 +1,10 @@
 package union.xenfork;
 
-import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.TerminalNode;
 import union.xenfork.g4.XenCodeBaseVisitor;
 import union.xenfork.g4.XenCodeParser;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class XenVisitor extends XenCodeBaseVisitor<Void> {
 
@@ -114,7 +109,8 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 
 	@Override
 	public Void visitFloats(XenCodeParser.FloatsContext ctx) {
-		val.put(ctx.NAME().toString(), new Record_("floats", ctx.FLOAT().stream().map(Object::toString).toList()));
+		floatsMap.put(ctx.NAME().toString(), ctx.FLOAT().stream().map(TerminalNode::toString).map(Float::valueOf).toList());
+		nameIsClassNameMap.put(ctx.NAME().toString(), "floats");
 		return super.visitFloats(ctx);
 	}
 
@@ -127,20 +123,22 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 
 	@Override
 	public Void visitInts(XenCodeParser.IntsContext ctx) {
-		val.put(ctx.NAME().toString(), new Record_("ints", ctx.INT().stream().map(Object::toString).toList()));
+		integersMap.put(ctx.NAME().toString(), ctx.INT().stream().map(TerminalNode::toString).map(Integer::parseInt).toList());
+		nameIsClassNameMap.put(ctx.NAME().toString(), "ints");
 		return super.visitInts(ctx);
 	}
 
 	@Override
 	public Void visitLong(XenCodeParser.LongContext ctx) {
-		longMap.put(ctx.NAME().toString(), Long.valueOf(ctx.LONG().toString()));
+		longMap.put(ctx.NAME().toString(), Long.getLong(ctx.LONG().toString()));
 		nameIsClassNameMap.put(ctx.NAME().toString(), "long");
 		return super.visitLong(ctx);
 	}
 
 	@Override
 	public Void visitLongs(XenCodeParser.LongsContext ctx) {
-		val.put(ctx.NAME().toString(), new Record_("longs", ctx.LONG().stream().map(Object::toString).toList()));
+		longsMap.put(ctx.NAME().toString(), ctx.LONG().stream().map(TerminalNode::toString).map(Long::valueOf).toList());
+		nameIsClassNameMap.put(ctx.NAME().toString(), "longs");
 		return super.visitLongs(ctx);
 	}
 
@@ -182,37 +180,67 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 
 	@Override
 	public Void visitVal(XenCodeParser.ValContext ctx) {
-		if (ctx.BOOL()!= null && !ctx.BOOL().isEmpty()) {
-			val.put(ctx.NAME().toString(), new Record_("val", ctx.BOOL().stream().map(Object::toString).toList()));
-		} else if (ctx.INT()!= null && !ctx.INT().isEmpty()) {
-			val.put(ctx.NAME().toString(), new Record_("val", ctx.INT().stream().map(Object::toString).toList()));
-		} else if (ctx.DOUBLE()!= null && !ctx.DOUBLE().isEmpty()) {
-			val.put(ctx.NAME().toString(), new Record_("val", ctx.DOUBLE().stream().map(Object::toString).toList()));
-		} else if (ctx.FLOAT()!= null && !ctx.FLOAT().isEmpty()) {
-			val.put(ctx.NAME().toString(), new Record_("val", ctx.FLOAT().stream().map(Object::toString).toList()));
-		} else if (ctx.LONG()!= null && !ctx.LONG().isEmpty()) {
-			val.put(ctx.NAME().toString(), new Record_("val", ctx.LONG().stream().map(TerminalNode::toString).toList()));
-		} else if (ctx.STRING()!= null && !ctx.STRING().isEmpty()) {
-			val.put(ctx.NAME().toString(), new Record_("var", ctx.STRING().stream().map(TerminalNode::toString).toList()));
-		}
+
+		invoke(ctx.BOOL(), ctx.NAME(), ctx.BOOL(0), ctx.INT(), ctx.INT(0), ctx.DOUBLE(), ctx.DOUBLE(0), ctx.FLOAT(), ctx.FLOAT(0), ctx.LONG(), ctx.LONG(0), ctx.STRING(), ctx.STRING(0));
 		return super.visitVal(ctx);
+	}
+
+	private void invoke(List<TerminalNode> bool, TerminalNode name, TerminalNode bool2, List<TerminalNode> anInt, TerminalNode anInt2, List<TerminalNode> aDouble, TerminalNode aDouble2, List<TerminalNode> aFloat, TerminalNode aFloat2, List<TerminalNode> aLong, TerminalNode aLong2, List<TerminalNode> string, TerminalNode string2) {
+		if (bool != null && !bool.isEmpty()) {
+			if (bool.size() == 1) {
+				booleanMap.put(name.toString(), Boolean.valueOf(bool2.toString()));
+				nameIsClassNameMap.put(name.toString(), "boolean");
+			} else {
+				booleansMap.put(name.toString(), bool.stream().map(TerminalNode::toString).map(Boolean::valueOf).toList());
+				nameIsClassNameMap.put(name.toString(), "booleans");
+			}
+		} else if (anInt != null && !anInt.isEmpty()) {
+			if (anInt.size() == 1) {
+				integerMap.put(name.toString(), Integer.parseInt(anInt2.toString()));
+				nameIsClassNameMap.put(name.toString(), "int");
+			} else {
+				integersMap.put(name.toString(), anInt.stream().map(TerminalNode::toString).map(Integer::parseInt).toList());
+				nameIsClassNameMap.put(name.toString(), "ints");
+			}
+		} else if (aDouble != null && !aDouble.isEmpty()) {
+			if (aDouble.size() == 1) {
+				doubleMap.put(name.toString(), Double.valueOf(aDouble2.toString()));
+				nameIsClassNameMap.put(name.toString(), "double");
+			} else {
+				doublesMap.put(name.toString(), aDouble.stream().map(TerminalNode::toString).map(Double::valueOf).toList());
+				nameIsClassNameMap.put(name.toString(), "doubles");
+			}
+		} else if (aFloat != null && !aFloat.isEmpty()) {
+			if (aFloat.size() == 1) {
+				floatMap.put(name.toString(), Float.valueOf(aFloat2.toString()));
+				nameIsClassNameMap.put(name.toString(), "float");
+			} else {
+				floatsMap.put(name.toString(), aFloat.stream().map(TerminalNode::toString).map(Float::valueOf).toList());
+				nameIsClassNameMap.put(name.toString(), "floats");
+			}
+		} else if (aLong != null && !aLong.isEmpty()) {
+			if (aLong.size() == 1) {
+				longMap.put(name.toString(), Long.getLong(aLong2.toString()));
+				nameIsClassNameMap.put(name.toString(), "long");
+			} else {
+				longsMap.put(name.toString(), aLong.stream().map(TerminalNode::toString).map(Long::getLong).toList());
+				nameIsClassNameMap.put(name.toString(), "longs");
+			}
+			val.put(name.toString(), new Record_("val", aLong.stream().map(TerminalNode::toString).toList()));
+		} else if (string != null && !string.isEmpty()) {
+			if (string.size() == 1) {
+				stringMap.put(name.toString(), string2.toString());
+				nameIsClassNameMap.put(name.toString(), "string");
+			} else {
+				stringsMap.put(name.toString(), string.stream().map(TerminalNode::toString).toList());
+				nameIsClassNameMap.put(name.toString(), "strings");
+			}
+		}
 	}
 
 	@Override
 	public Void visitVar(XenCodeParser.VarContext ctx) {
-		if (ctx.BOOL()!= null && !ctx.BOOL().isEmpty()) {
-			val.put(ctx.NAME().toString(), new Record_("var", ctx.BOOL().stream().map(Object::toString).toList()));
-		} else if (ctx.INT()!= null && !ctx.INT().isEmpty()) {
-			val.put(ctx.NAME().toString(), new Record_("var", ctx.INT().stream().map(Object::toString).toList()));
-		} else if (ctx.DOUBLE()!= null && !ctx.DOUBLE().isEmpty()) {
-			val.put(ctx.NAME().toString(), new Record_("var", ctx.DOUBLE().stream().map(Object::toString).toList()));
-		} else if (ctx.FLOAT()!= null && !ctx.FLOAT().isEmpty()) {
-			val.put(ctx.NAME().toString(), new Record_("var", ctx.FLOAT().stream().map(Object::toString).toList()));
-		} else if (ctx.LONG()!= null && !ctx.LONG().isEmpty()) {
-			val.put(ctx.NAME().toString(), new Record_("var", ctx.LONG().stream().map(TerminalNode::toString).toList()));
-		} else if (ctx.STRING()!= null && !ctx.STRING().isEmpty()) {
-			val.put(ctx.NAME().toString(), new Record_("var", ctx.STRING().stream().map(TerminalNode::toString).toList()));
-		}
+		invoke(ctx.BOOL(), ctx.NAME(), ctx.BOOL(0), ctx.INT(), ctx.INT(0), ctx.DOUBLE(), ctx.DOUBLE(0), ctx.FLOAT(), ctx.FLOAT(0), ctx.LONG(), ctx.LONG(0), ctx.STRING(), ctx.STRING(0));
 		return super.visitVar(ctx);
 	}
 
@@ -224,6 +252,84 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 			visitM(ctx.m());
 		}
 		return super.visitAllMethod(ctx);
+	}
+
+	@Override
+	public Void visitAdd(XenCodeParser.AddContext ctx) {
+		if (nameIsClassNameMap.containsKey(ctx.NAME().toString())) {
+			if (nameIsClassNameMap.get(ctx.NAME().toString()).equals("strings") && ctx.STRING() != null) {
+				List<String> temp = new ArrayList<>(stringsMap.get(ctx.NAME().toString()));
+				temp.add(ctx.STRING().toString());
+				stringsMap.put(ctx.NAME().toString(), temp);
+			} else if (nameIsClassNameMap.get(ctx.NAME().toString()).equals("ints") && ctx.INT() != null) {
+				List<Integer> temp = new ArrayList<>(integersMap.get(ctx.NAME().toString()));
+				temp.add(Integer.parseInt(ctx.INT().toString()));
+				integersMap.put(ctx.NAME().toString(), temp);
+			} else if (nameIsClassNameMap.get(ctx.NAME().toString()).equals("floats") && ctx.FLOAT() != null) {
+				List<Float> temp = new ArrayList<>(floatsMap.get(ctx.NAME().toString()));
+				temp.add(Float.valueOf(ctx.FLOAT().toString()));
+				floatsMap.put(ctx.NAME().toString(), temp);
+			} else if (nameIsClassNameMap.get(ctx.NAME().toString()).equals("longs") && ctx.LONG() != null) {
+				List<Long> temp = new ArrayList<>(longsMap.get(ctx.NAME().toString()));
+				temp.add(Long.getLong(ctx.LONG().toString()));
+				longsMap.put(ctx.NAME().toString(), temp);
+			} else if (nameIsClassNameMap.get(ctx.NAME().toString()).equals("doubles") && ctx.DOUBLE() != null) {
+				List<Double> temp = new ArrayList<>(doublesMap.get(ctx.NAME().toString()));
+				temp.add(Double.valueOf(ctx.DOUBLE().toString()));
+				doublesMap.put(ctx.NAME().toString(), temp);
+			}else if (nameIsClassNameMap.get(ctx.NAME().toString()).equals("booleans") && ctx.BOOL() != null) {
+				List<Boolean> temp = new ArrayList<>(booleansMap.get(ctx.NAME().toString()));
+				temp.add(Boolean.valueOf(ctx.BOOL().toString()));
+				booleansMap.put(ctx.NAME().toString(), temp);
+			}
+		}
+		return super.visitAdd(ctx);
+	}
+
+	@Override
+	public Void visitAddAll(XenCodeParser.AddAllContext ctx) {
+		if (nameIsClassNameMap.containsKey(ctx.NAME().toString())) {
+			if (nameIsClassNameMap.get(ctx.NAME().toString()).equals("strings") && ctx.STRING() != null) {
+				List<String> temp = new ArrayList<>(stringsMap.get(ctx.NAME().toString()));
+				temp.addAll(ctx.STRING().stream().map(TerminalNode::toString).toList());
+				stringsMap.put(ctx.NAME().toString(), temp);
+			} else if (nameIsClassNameMap.get(ctx.NAME().toString()).equals("ints") && ctx.INT() != null) {
+				List<Integer> temp = new ArrayList<>(integersMap.get(ctx.NAME().toString()));
+				temp.addAll(ctx.INT().stream().map(TerminalNode::toString).map(Integer::parseInt).toList());
+				integersMap.put(ctx.NAME().toString(), temp);
+			} else if (nameIsClassNameMap.get(ctx.NAME().toString()).equals("floats") && ctx.FLOAT() != null) {
+				List<Float> temp = new ArrayList<>(floatsMap.get(ctx.NAME().toString()));
+				temp.addAll(ctx.FLOAT().stream().map(TerminalNode::toString).map(Float::valueOf).toList());
+				floatsMap.put(ctx.NAME().toString(), temp);
+			} else if (nameIsClassNameMap.get(ctx.NAME().toString()).equals("longs") && ctx.LONG() != null) {
+				List<Long> temp = new ArrayList<>(longsMap.get(ctx.NAME().toString()));
+				temp.addAll(ctx.LONG().stream().map(TerminalNode::toString).map(Long::getLong).toList());
+				longsMap.put(ctx.NAME().toString(), temp);
+			} else if (nameIsClassNameMap.get(ctx.NAME().toString()).equals("doubles") && ctx.DOUBLE() != null) {
+				List<Double> temp = new ArrayList<>(doublesMap.get(ctx.NAME().toString()));
+				temp.addAll(ctx.DOUBLE().stream().map(TerminalNode::toString).map(Double::valueOf).toList());
+				doublesMap.put(ctx.NAME().toString(), temp);
+			}else if (nameIsClassNameMap.get(ctx.NAME().toString()).equals("booleans") && ctx.BOOL() != null) {
+				List<Boolean> temp = new ArrayList<>(booleansMap.get(ctx.NAME().toString()));
+				temp.addAll(ctx.BOOL().stream().map(TerminalNode::toString).map(Boolean::valueOf).toList());
+				booleansMap.put(ctx.NAME().toString(), temp);
+			}
+		}
+		return super.visitAddAll(ctx);
+	}
+
+	@Override
+	public Void visitM(XenCodeParser.MContext ctx) {
+		if (ctx.for_()!=null) {
+			visitFor(ctx.for_());
+		} else if (ctx.foreach() != null) {
+			visitForeach(ctx.foreach());
+		} else if (ctx.while_() != null) {
+			visitWhile(ctx.while_());
+		} else if (ctx.print() != null) {
+			visitPrint(ctx.print());
+		}
+		return super.visitM(ctx);
 	}
 
 	public int getPriority() {

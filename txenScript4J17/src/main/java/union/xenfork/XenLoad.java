@@ -23,6 +23,9 @@ public class XenLoad {
 				System.out.println(record.className() + " " + s + " = " + record.value());
 			}
 		});
+		xv.stringsMap.forEach((s, strings) -> {
+			System.out.println(s + "=" + strings);
+		});
 	}
 
 	public void loadPriority(String str) {

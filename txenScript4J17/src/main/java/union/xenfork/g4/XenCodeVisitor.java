@@ -154,6 +154,12 @@ public interface XenCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFor(XenCodeParser.ForContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link XenCodeParser#foreach}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForeach(XenCodeParser.ForeachContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link XenCodeParser#print}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

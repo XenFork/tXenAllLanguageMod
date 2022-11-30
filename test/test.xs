@@ -36,7 +36,7 @@ val some as strings =
 
 strings test1 = {
     "abd", "acc", "adw"
-}
+};
 
 test1.add("some");
 
