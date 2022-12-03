@@ -3,7 +3,11 @@
 # ItemStack > a;
 int aaa = 3;
 string strGG = "abd";
-var me = "It's me";
+val me = "It's me";
+val me = 1;
+val about = 1.0f;
+val sdk = 1l;
+val boolean1 = true;
 while k <= 10
 {
     /*

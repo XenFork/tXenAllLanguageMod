@@ -19,38 +19,25 @@ boolean_: boolean | booleans;
 tmp:
 imports
 | val | var | add | addAll;
-str: 'string' NAME ('=' STRING | )';';
-int: 'int' NAME ('=' INT | )';' ;
-float: 'float' NAME ('=' FLOAT | )';';
-double: 'double' NAME ('=' DOUBLE | )';';
-long:  'long' NAME ('=' LONG | )';';
-boolean: 'bool' NAME ('=' BOOL | )';' | 'boolean' NAME ('=' BOOL | )';' ;
-strings: 'strings' NAME ('=' '{' ((STRING ',')+STRING | STRING | ) '}' | )';' ;
-ints: 'ints' NAME ('=' '{' ((INT ',')+INT | INT | ) '}' | )';' ;
-floats: 'floats' NAME ('=' '{' ((FLOAT ',')+FLOAT | FLOAT | ) '}' | )';' ;
-doubles: 'doubles' NAME ('=' '{' ((DOUBLE ',')+DOUBLE | DOUBLE | ) '}' | )';' ;
-longs: 'longs' NAME ('=' '{' ((LONG ',')+LONG | LONG | ) '}' | )';' ;
+str: 'string' NAME ('=' STRING | )';' | 'val' NAME '=' STRING';' | 'var' NAME '=' STRING';';
+int: 'int' NAME ('=' INT | )';' | 'val' NAME '=' INT';' | 'var' NAME '=' INT';';
+float: 'float' NAME ('=' FLOAT | )';' | 'val' NAME ('=' FLOAT | )';' | 'var' NAME ('=' FLOAT | )';';
+double: 'double' NAME ('=' DOUBLE | )';' | 'val' NAME '=' DOUBLE ';' | 'var' NAME '=' DOUBLE ';';
+long:  'long' NAME ('=' LONG | )';' | 'val' NAME '=' LONG';' | 'var' NAME '=' LONG';';
+boolean: 'bool' NAME ('=' BOOL | )';' | 'boolean' NAME ('=' BOOL | )';' | 'val' NAME '=' BOOL';' | 'var' NAME '=' BOOL';' ;
+strings: 'strings' NAME ('=' '{' ((STRING ',')+STRING | STRING | ) '}' | )';' | 'val' NAME 'as' 'strings' ('=' '{' ((STRING ',')+STRING | STRING | ) '}' | ) ';' | 'var' NAME 'as' 'strings' '=' '{' ((STRING ',')+STRING | STRING | ) '}' ';' ;
+ints: 'ints' NAME ('=' '{' ((INT ',')+INT | INT | ) '}' | )';' | 'val' NAME 'as' 'ints' ('=' '{' ((INT ',')+INT | INT | ) '}' | )';' | 'var' NAME 'as' 'ints' ('=' '{' ((INT ',')+INT | INT | ) '}' | )';';
+floats: 'floats' NAME ('=' '{' ((FLOAT ',')+FLOAT | FLOAT | ) '}' | )';' | 'val' NAME 'as' 'floats' ('=' '{' ((FLOAT ',')+FLOAT | FLOAT | ) '}' | )';' | 'var' NAME 'as' 'floats' ('=' '{' ((FLOAT ',')+FLOAT | FLOAT | ) '}' | )';';
+doubles: 'doubles' NAME ('=' '{' ((DOUBLE ',')+DOUBLE | DOUBLE | ) '}' | )';' | 'val' NAME 'as' 'doubles' ('=' '{' ((DOUBLE ',')+DOUBLE | DOUBLE | ) '}' | )';' | 'var' NAME 'as' 'doubles' ('=' '{' ((DOUBLE ',')+DOUBLE | DOUBLE | ) '}' | )';';
+longs: 'longs' NAME ('=' '{' ((LONG ',')+LONG | LONG | ) '}' | )';' | 'val' NAME 'as' 'longs' ('=' '{' ((LONG ',')+LONG | LONG | ) '}' | )';' | 'var' NAME 'as' 'longs' ('=' '{' ((LONG ',')+LONG | LONG | ) '}' | )';' ;
 booleans: 'booleans' NAME ('=' '{' ((BOOL ',')+BOOL | BOOL | ) '}' | )';' | 'bools' NAME ('=' '{' ((BOOL ',')+BOOL | BOOL | ) '}' | )';' ;
 val: 'val' NAME
-('=' (INT | STRING | FLOAT | DOUBLE | LONG | BOOL)
-| 'as'
-('strings' ('=' '{' ((STRING ',')+STRING | STRING | ) '}' | )
-| 'ints' ('=' '{' ((INT ',')+INT | INT | ) '}' | )
-| 'floats' ('=' '{' ((FLOAT ',')+FLOAT | FLOAT | ) '}' | )
-| 'doubles' ('=' '{' ((DOUBLE ',')+DOUBLE | DOUBLE | ) '}' | )
-| 'longs' ('=' '{' ((LONG ',')+LONG | LONG | ) '}' | )
-| 'booleans' ('=' '{' ((BOOL ',')+BOOL | BOOL | ) '}' | )
+( 'as'
+( 'booleans' ('=' '{' ((BOOL ',')+BOOL | BOOL | ) '}' | )
 | 'bools' ('=' '{' ((BOOL ',')+BOOL | BOOL | ) '}' | ) ) )';';
-
 var: 'var' NAME
-('=' (INT | STRING | FLOAT | DOUBLE | LONG | BOOL)
-| 'as'
-('strings' ('=' '{' ((STRING ',')+STRING | STRING | ) '}' | )
-| 'ints' ('=' '{' ((INT ',')+INT | INT | ) '}' | )
-| 'floats' ('=' '{' ((FLOAT ',')+FLOAT | FLOAT | ) '}' | )
-| 'doubles' ('=' '{' ((DOUBLE ',')+DOUBLE | DOUBLE | ) '}' | )
-| 'longs' ('=' '{' ((LONG ',')+LONG | LONG | ) '}' | )
-| 'booleans' ('=' '{' ((BOOL ',')+BOOL | BOOL | ) '}' | )
+('as'
+( 'booleans' ('=' '{' ((BOOL ',')+BOOL | BOOL | ) '}' | )
 | 'bools' ('=' '{' ((BOOL ',')+BOOL | BOOL | ) '}' | ) ) )';';
 imports: '#' (INT | NAME ('>' NAME | )) ';';
 add: NAME'.''add''(' (STRING | INT | FLOAT | DOUBLE | LONG | BOOL) ')'';' ;
