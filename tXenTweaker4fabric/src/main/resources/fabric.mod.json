@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "txentweaker4fabric",
+  "version": "${version}",
+  "name": "TXenTweaker4fabric",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/tXenTweaker4fabric/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "union.xenfork.txentweaker4fabric.client.TXenTweaker4fabricClient"
+    ],
+    "main": [
+      "union.xenfork.txentweaker4fabric.TXenTweaker4fabric"
+    ]
+  },
+  "mixins": [
+    "tXenTweaker4fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.11",
+    "fabric": "*",
+    "minecraft": "1.19.2"
+  }
+}
