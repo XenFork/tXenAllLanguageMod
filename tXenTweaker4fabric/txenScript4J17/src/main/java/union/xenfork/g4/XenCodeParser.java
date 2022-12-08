@@ -1,4 +1,4 @@
-package union.xenfork.g4;// Generated from java-escape by ANTLR 4.11.1
+// Generated from java-escape by ANTLR 4.11.1
 
 import java.util.*;
 import java.lang.*;
@@ -141,11 +141,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_all; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterAll(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterAll(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitAll(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitAll(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -208,11 +208,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_sy; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterSy(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterSy(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitSy(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitSy(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -283,11 +283,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_jh; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterJh(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterJh(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitJh(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitJh(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -356,11 +356,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_field; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterField(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterField(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitField(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitField(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -445,11 +445,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_s; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterS(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterS(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitS(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitS(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -506,11 +506,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_i; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterI(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterI(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitI(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitI(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -567,11 +567,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_f; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterF(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterF(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitF(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitF(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -628,11 +628,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_d; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterD(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterD(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitD(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitD(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -689,11 +689,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_l; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterL(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterL(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitL(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitL(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -750,11 +750,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_b; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterB(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterB(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitB(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitB(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -809,11 +809,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_str; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterStr(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterStr(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitStr(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitStr(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -918,11 +918,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_int; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterInt(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterInt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitInt(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitInt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -1025,11 +1025,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_float; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterFloat(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterFloat(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitFloat(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitFloat(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -1157,11 +1157,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_double; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterDouble(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterDouble(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitDouble(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitDouble(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -1261,11 +1261,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_long; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterLong(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterLong(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitLong(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitLong(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -1365,11 +1365,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_boolean; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterBoolean(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterBoolean(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitBoolean(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitBoolean(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -1502,11 +1502,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_strings; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterStrings(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterStrings(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitStrings(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitStrings(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -1565,7 +1565,7 @@ public class XenCodeParser extends Parser {
 							setState(259); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,25,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(261);
 						match(STRING);
 						}
@@ -1642,7 +1642,7 @@ public class XenCodeParser extends Parser {
 							setState(281); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,28,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(283);
 						match(STRING);
 						}
@@ -1714,7 +1714,7 @@ public class XenCodeParser extends Parser {
 						setState(303); 
 						_errHandler.sync(this);
 						_alt = getInterpreter().adaptivePredict(_input,31,_ctx);
-					} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+					} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 					setState(305);
 					match(STRING);
 					}
@@ -1764,11 +1764,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_ints; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterInts(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterInts(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitInts(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitInts(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -1827,7 +1827,7 @@ public class XenCodeParser extends Parser {
 							setState(322); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,34,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(324);
 						match(INT);
 						}
@@ -1904,7 +1904,7 @@ public class XenCodeParser extends Parser {
 							setState(344); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,37,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(346);
 						match(INT);
 						}
@@ -1981,7 +1981,7 @@ public class XenCodeParser extends Parser {
 							setState(366); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,40,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(368);
 						match(INT);
 						}
@@ -2040,11 +2040,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_floats; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterFloats(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterFloats(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitFloats(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitFloats(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -2103,7 +2103,7 @@ public class XenCodeParser extends Parser {
 							setState(388); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,44,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(390);
 						match(FLOAT);
 						}
@@ -2180,7 +2180,7 @@ public class XenCodeParser extends Parser {
 							setState(410); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,47,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(412);
 						match(FLOAT);
 						}
@@ -2257,7 +2257,7 @@ public class XenCodeParser extends Parser {
 							setState(432); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,50,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(434);
 						match(FLOAT);
 						}
@@ -2316,11 +2316,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_doubles; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterDoubles(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterDoubles(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitDoubles(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitDoubles(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -2379,7 +2379,7 @@ public class XenCodeParser extends Parser {
 							setState(454); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,54,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(456);
 						match(DOUBLE);
 						}
@@ -2456,7 +2456,7 @@ public class XenCodeParser extends Parser {
 							setState(476); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,57,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(478);
 						match(DOUBLE);
 						}
@@ -2533,7 +2533,7 @@ public class XenCodeParser extends Parser {
 							setState(498); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,60,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(500);
 						match(DOUBLE);
 						}
@@ -2592,11 +2592,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_longs; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterLongs(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterLongs(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitLongs(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitLongs(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -2655,7 +2655,7 @@ public class XenCodeParser extends Parser {
 							setState(520); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,64,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(522);
 						match(LONG);
 						}
@@ -2732,7 +2732,7 @@ public class XenCodeParser extends Parser {
 							setState(542); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,67,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(544);
 						match(LONG);
 						}
@@ -2809,7 +2809,7 @@ public class XenCodeParser extends Parser {
 							setState(564); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,70,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(566);
 						match(LONG);
 						}
@@ -2868,11 +2868,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_booleans; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterBooleans(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterBooleans(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitBooleans(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitBooleans(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -2931,7 +2931,7 @@ public class XenCodeParser extends Parser {
 							setState(586); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,74,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(588);
 						match(BOOL);
 						}
@@ -3004,7 +3004,7 @@ public class XenCodeParser extends Parser {
 							setState(606); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,77,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(608);
 						match(BOOL);
 						}
@@ -3081,7 +3081,7 @@ public class XenCodeParser extends Parser {
 							setState(628); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,80,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(630);
 						match(BOOL);
 						}
@@ -3158,7 +3158,7 @@ public class XenCodeParser extends Parser {
 							setState(650); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,83,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(652);
 						match(BOOL);
 						}
@@ -3235,7 +3235,7 @@ public class XenCodeParser extends Parser {
 							setState(672); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,86,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(674);
 						match(BOOL);
 						}
@@ -3312,7 +3312,7 @@ public class XenCodeParser extends Parser {
 							setState(694); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,89,_ctx);
-						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						setState(696);
 						match(BOOL);
 						}
@@ -3368,11 +3368,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_import_; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterImport_(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterImport_(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitImport_(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitImport_(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -3433,11 +3433,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_priority; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterPriority(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterPriority(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitPriority(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitPriority(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -3486,11 +3486,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_add; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterAdd(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterAdd(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitAdd(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitAdd(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -3577,11 +3577,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_addAll; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterAddAll(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterAddAll(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitAddAll(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitAddAll(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -3637,7 +3637,7 @@ public class XenCodeParser extends Parser {
 					setState(738); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,94,_ctx);
-				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 				setState(740);
 				match(STRING);
 				}
@@ -3665,7 +3665,7 @@ public class XenCodeParser extends Parser {
 					setState(745); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,95,_ctx);
-				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 				setState(747);
 				match(INT);
 				}
@@ -3693,7 +3693,7 @@ public class XenCodeParser extends Parser {
 					setState(752); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,96,_ctx);
-				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 				setState(754);
 				match(FLOAT);
 				}
@@ -3721,7 +3721,7 @@ public class XenCodeParser extends Parser {
 					setState(759); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,97,_ctx);
-				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 				setState(761);
 				match(DOUBLE);
 				}
@@ -3749,7 +3749,7 @@ public class XenCodeParser extends Parser {
 					setState(766); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,98,_ctx);
-				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 				setState(768);
 				match(LONG);
 				}
@@ -3777,7 +3777,7 @@ public class XenCodeParser extends Parser {
 					setState(773); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,99,_ctx);
-				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 				setState(775);
 				match(BOOL);
 				}
@@ -3822,11 +3822,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_m; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterM(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterM(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitM(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitM(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -3899,11 +3899,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_while; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterWhile(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterWhile(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitWhile(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitWhile(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -3992,11 +3992,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_for; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterFor(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterFor(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitFor(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitFor(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -4086,11 +4086,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_foreach; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterForeach(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterForeach(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitForeach(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitForeach(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -4195,11 +4195,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_print; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterPrint(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterPrint(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitPrint(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitPrint(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -4298,7 +4298,7 @@ public class XenCodeParser extends Parser {
 					setState(837); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,107,_ctx);
-				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 				setState(841);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
@@ -4355,11 +4355,11 @@ public class XenCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_r; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).enterR(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).enterR(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XenCodeListener) ((XenCodeListener)listener).exitR(this);
+			if ( listener instanceof XenCodeListener ) ((XenCodeListener)listener).exitR(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {

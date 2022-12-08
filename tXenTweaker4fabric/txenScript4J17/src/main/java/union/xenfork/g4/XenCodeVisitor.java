@@ -1,4 +1,4 @@
-package union.xenfork.g4;// Generated from java-escape by ANTLR 4.11.1
+// Generated from java-escape by ANTLR 4.11.1
 
 import java.util.*;
 import java.lang.*;
