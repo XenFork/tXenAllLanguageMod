@@ -1,4 +1,4 @@
-// Generated from java-escape by ANTLR 4.11.1
+package union.xenfork.g4;// Generated from java-escape by ANTLR 4.11.1
 
 import java.util.*;
 import java.lang.*;
@@ -1565,7 +1565,7 @@ public class XenCodeParser extends Parser {
 							setState(259); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,25,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(261);
 						match(STRING);
 						}
@@ -1642,7 +1642,7 @@ public class XenCodeParser extends Parser {
 							setState(281); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,28,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(283);
 						match(STRING);
 						}
@@ -1714,7 +1714,7 @@ public class XenCodeParser extends Parser {
 						setState(303); 
 						_errHandler.sync(this);
 						_alt = getInterpreter().adaptivePredict(_input,31,_ctx);
-					} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+					} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 					setState(305);
 					match(STRING);
 					}
@@ -1827,7 +1827,7 @@ public class XenCodeParser extends Parser {
 							setState(322); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,34,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(324);
 						match(INT);
 						}
@@ -1904,7 +1904,7 @@ public class XenCodeParser extends Parser {
 							setState(344); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,37,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(346);
 						match(INT);
 						}
@@ -1981,7 +1981,7 @@ public class XenCodeParser extends Parser {
 							setState(366); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,40,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(368);
 						match(INT);
 						}
@@ -2103,7 +2103,7 @@ public class XenCodeParser extends Parser {
 							setState(388); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,44,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(390);
 						match(FLOAT);
 						}
@@ -2180,7 +2180,7 @@ public class XenCodeParser extends Parser {
 							setState(410); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,47,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(412);
 						match(FLOAT);
 						}
@@ -2257,7 +2257,7 @@ public class XenCodeParser extends Parser {
 							setState(432); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,50,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(434);
 						match(FLOAT);
 						}
@@ -2379,7 +2379,7 @@ public class XenCodeParser extends Parser {
 							setState(454); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,54,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(456);
 						match(DOUBLE);
 						}
@@ -2456,7 +2456,7 @@ public class XenCodeParser extends Parser {
 							setState(476); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,57,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(478);
 						match(DOUBLE);
 						}
@@ -2533,7 +2533,7 @@ public class XenCodeParser extends Parser {
 							setState(498); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,60,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(500);
 						match(DOUBLE);
 						}
@@ -2655,7 +2655,7 @@ public class XenCodeParser extends Parser {
 							setState(520); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,64,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(522);
 						match(LONG);
 						}
@@ -2732,7 +2732,7 @@ public class XenCodeParser extends Parser {
 							setState(542); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,67,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(544);
 						match(LONG);
 						}
@@ -2809,7 +2809,7 @@ public class XenCodeParser extends Parser {
 							setState(564); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,70,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(566);
 						match(LONG);
 						}
@@ -2931,7 +2931,7 @@ public class XenCodeParser extends Parser {
 							setState(586); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,74,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(588);
 						match(BOOL);
 						}
@@ -3004,7 +3004,7 @@ public class XenCodeParser extends Parser {
 							setState(606); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,77,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(608);
 						match(BOOL);
 						}
@@ -3081,7 +3081,7 @@ public class XenCodeParser extends Parser {
 							setState(628); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,80,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(630);
 						match(BOOL);
 						}
@@ -3158,7 +3158,7 @@ public class XenCodeParser extends Parser {
 							setState(650); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,83,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(652);
 						match(BOOL);
 						}
@@ -3235,7 +3235,7 @@ public class XenCodeParser extends Parser {
 							setState(672); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,86,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(674);
 						match(BOOL);
 						}
@@ -3312,7 +3312,7 @@ public class XenCodeParser extends Parser {
 							setState(694); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,89,_ctx);
-						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+						} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 						setState(696);
 						match(BOOL);
 						}
@@ -3637,7 +3637,7 @@ public class XenCodeParser extends Parser {
 					setState(738); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,94,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 				setState(740);
 				match(STRING);
 				}
@@ -3665,7 +3665,7 @@ public class XenCodeParser extends Parser {
 					setState(745); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,95,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 				setState(747);
 				match(INT);
 				}
@@ -3693,7 +3693,7 @@ public class XenCodeParser extends Parser {
 					setState(752); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,96,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 				setState(754);
 				match(FLOAT);
 				}
@@ -3721,7 +3721,7 @@ public class XenCodeParser extends Parser {
 					setState(759); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,97,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 				setState(761);
 				match(DOUBLE);
 				}
@@ -3749,7 +3749,7 @@ public class XenCodeParser extends Parser {
 					setState(766); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,98,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 				setState(768);
 				match(LONG);
 				}
@@ -3777,7 +3777,7 @@ public class XenCodeParser extends Parser {
 					setState(773); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,99,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 				setState(775);
 				match(BOOL);
 				}
@@ -4298,7 +4298,7 @@ public class XenCodeParser extends Parser {
 					setState(837); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,107,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 				setState(841);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
