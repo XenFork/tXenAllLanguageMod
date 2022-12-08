@@ -1,4 +1,8 @@
 package union.xenfork.g4;// Generated from java-escape by ANTLR 4.11.1
+
+import java.util.*;
+import java.lang.*;
+
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -16,6 +20,36 @@ public interface XenCodeListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAll(XenCodeParser.AllContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link XenCodeParser#sy}.
+	 * @param ctx the parse tree
+	 */
+	void enterSy(XenCodeParser.SyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link XenCodeParser#sy}.
+	 * @param ctx the parse tree
+	 */
+	void exitSy(XenCodeParser.SyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link XenCodeParser#jh}.
+	 * @param ctx the parse tree
+	 */
+	void enterJh(XenCodeParser.JhContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link XenCodeParser#jh}.
+	 * @param ctx the parse tree
+	 */
+	void exitJh(XenCodeParser.JhContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link XenCodeParser#field}.
+	 * @param ctx the parse tree
+	 */
+	void enterField(XenCodeParser.FieldContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link XenCodeParser#field}.
+	 * @param ctx the parse tree
+	 */
+	void exitField(XenCodeParser.FieldContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link XenCodeParser#s}.
 	 * @param ctx the parse tree

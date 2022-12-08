@@ -1,24 +1,44 @@
 grammar XenCode;
 
+@parser::header {
+import java.util.*;
+import java.lang.*;
+}
+
+@parser::members {
+    public Map<String, String> stringMap = new HashMap<>();
+    public Map<String, Integer> integerMap = new HashMap<>();
+    public void put(String key, String value) { stringMap.put(key, value); }
+    public void put(String key, Integer value) {integerMap.put(key, value); }
+    public String getString(String key) { return stringMap.get(key);}
+    public String substring(String str) { return str.substring(str.indexOf("\"") + 1, str.lastIndexOf("\""));}
+    public Integer getInt(String a) {
+        try {Integer.parseInt(a);return Integer.parseInt(a);} catch (NumberFormatException e) {e.printStackTrace();}
+        return null;
+    }
+}
 LINE_COMMENT : '//' .*? '\n' -> skip;
 COMMENT : '/*' .*? '*/' -> skip;
 
-all: (priority | import_ //# 1; or # Item > item;
-| s | i | f | d | l | b | m | add | addAll)+;
+
+
+all: sy+;
+sy: jh | field | add | addAll;
+jh: priority | import_;//对于#号键
+field: s | i | f | d | l | b;
 s: str | strings;
 i: int | ints;
 f: float | floats;
 d: double | doubles;
 l: long | longs ;
 b: boolean | booleans;
-
-str: 'string' NAME ('=' STRING | )';' | 'val' NAME '=' STRING';' | 'var' NAME '=' STRING';';
-int: 'int' NAME ('=' INT | )';' | 'val' NAME '=' INT';' | 'var' NAME '=' INT';';
+str: 'string' name=NAME ('=' id=STRING {put($name.text, substring($id.text));} | )';' | 'val' name=NAME '=' id=STRING {put($name.text, substring($id.text));}';' | 'var' name=NAME '=' id=STRING {put($name.text, substring($id.text));}';';
+int: 'int' name=NAME ('=' id=INT {put($name.text, getInt($id.text));} | )';' | 'val' name=NAME '=' id=INT {put($name.text, getInt($id.text));}';' | 'var' name=NAME '=' id=INT {put($name.text, getInt($id.text));}';';
 float: 'float' NAME ('=' FLOAT | )';' | 'val' NAME ('=' FLOAT | )';' | 'var' NAME ('=' FLOAT | )';';
 double: 'double' NAME ('=' DOUBLE | )';' | 'val' NAME '=' DOUBLE ';' | 'var' NAME '=' DOUBLE ';';
 long:  'long' NAME ('=' LONG | )';' | 'val' NAME '=' LONG';' | 'var' NAME '=' LONG';';
 boolean: 'bool' NAME ('=' BOOL | )';' | 'boolean' NAME ('=' BOOL | )';' | 'val' NAME '=' BOOL';' | 'var' NAME '=' BOOL';' ;
-strings: 'strings' NAME ('=' '{' ((STRING ',')+STRING | STRING | ) '}' | )';' | 'val' NAME 'as' 'strings' ('=' '{' ((STRING ',')+STRING | STRING | ) '}' | ) ';' | 'var' NAME 'as' 'strings' '=' '{' ((STRING ',')+STRING | STRING | ) '}' ';' ;
+strings: 'strings' name=NAME ('=' '{' ((STRING ',')+ STRING | STRING | ) '}' | )';' | 'val' NAME 'as' 'strings' ('=' '{' ((STRING ',')+STRING | STRING | ) '}' | ) ';' | 'var' NAME 'as' 'strings' '=' '{' ((STRING ',')+STRING | STRING | ) '}' ';' ;
 ints: 'ints' NAME ('=' '{' ((INT ',')+INT | INT | ) '}' | )';' | 'val' NAME 'as' 'ints' ('=' '{' ((INT ',')+INT | INT | ) '}' | )';' | 'var' NAME 'as' 'ints' ('=' '{' ((INT ',')+INT | INT | ) '}' | )';';
 floats: 'floats' NAME ('=' '{' ((FLOAT ',')+FLOAT | FLOAT | ) '}' | )';' | 'val' NAME 'as' 'floats' ('=' '{' ((FLOAT ',')+FLOAT | FLOAT | ) '}' | )';' | 'var' NAME 'as' 'floats' ('=' '{' ((FLOAT ',')+FLOAT | FLOAT | ) '}' | )';';
 doubles: 'doubles' NAME ('=' '{' ((DOUBLE ',')+DOUBLE | DOUBLE | ) '}' | )';' | 'val' NAME 'as' 'doubles' ('=' '{' ((DOUBLE ',')+DOUBLE | DOUBLE | ) '}' | )';' | 'var' NAME 'as' 'doubles' ('=' '{' ((DOUBLE ',')+DOUBLE | DOUBLE | ) '}' | )';';
@@ -58,7 +78,3 @@ WS  : [ \t\r\n]+ -> skip;
 */
 
 r   : 'hello' NAME';';
-
-
-
-

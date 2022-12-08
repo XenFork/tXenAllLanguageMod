@@ -1,5 +1,9 @@
 // Generated from java-escape by ANTLR 4.11.1
 
+import java.util.*;
+import java.lang.*;
+
+
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -23,6 +27,42 @@ public class XenCodeBaseListener implements XenCodeListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitAll(XenCodeParser.AllContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSy(XenCodeParser.SyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSy(XenCodeParser.SyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterJh(XenCodeParser.JhContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitJh(XenCodeParser.JhContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterField(XenCodeParser.FieldContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitField(XenCodeParser.FieldContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -1,6 +1,7 @@
 package union.xenfork;
 
 import union.xenfork.g4.XenCodeBaseVisitor;
+import union.xenfork.g4.XenCodeParser;
 
 import java.util.*;
 
@@ -25,5 +26,4 @@ public class XenVisitor extends XenCodeBaseVisitor<Void> {
 	public HashMap<String, String> importMap = new HashMap<>();
  	public Map<String, Object> val = new HashMap<>();//局部变量
 	//第一个string表示name 第二个string表示int val之类的头， Object存各类参数
-
 }

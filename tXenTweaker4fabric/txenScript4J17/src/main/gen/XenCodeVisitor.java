@@ -1,4 +1,8 @@
 // Generated from java-escape by ANTLR 4.11.1
+
+import java.util.*;
+import java.lang.*;
+
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -15,6 +19,24 @@ public interface XenCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAll(XenCodeParser.AllContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link XenCodeParser#sy}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSy(XenCodeParser.SyContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link XenCodeParser#jh}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitJh(XenCodeParser.JhContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link XenCodeParser#field}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitField(XenCodeParser.FieldContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link XenCodeParser#s}.
 	 * @param ctx the parse tree
