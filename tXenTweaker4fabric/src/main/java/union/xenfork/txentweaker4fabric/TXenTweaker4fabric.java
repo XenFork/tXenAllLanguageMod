@@ -8,10 +8,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import union.xenfork.g4.XenCodeLexer;
 import union.xenfork.g4.XenCodeParser;
+import union.xenfork.txentweaker4fabric.xencode.Load;
 import union.xenfork.txentweaker4fabric.xencode.Visit;
 
 import java.io.File;
 import java.io.IOException;
+
+import static union.xenfork.txentweaker4fabric.xencode.Load.IIFMAP;
+import static union.xenfork.txentweaker4fabric.xencode.Load.load;
 
 public class TXenTweaker4fabric implements ModInitializer {
 	public static final Logger logger = LoggerFactory.getLogger("txen");
@@ -25,14 +29,11 @@ public class TXenTweaker4fabric implements ModInitializer {
 		var fs = code.listFiles();
 		assert fs != null;
 		for (var f : fs) {
-			try {
-				CharStream input = CharStreams.fromPath(f.toPath());
-				XenCodeLexer lexer = new XenCodeLexer(input);
-				CommonTokenStream tokens = new CommonTokenStream(lexer);
-				XenCodeParser parser = new XenCodeParser(tokens);
-				Visit visit = new Visit();
-			} catch (IOException e) {
-				throw new RuntimeException(e);
+			Load.loadPriority(f);
+		}
+		for (var temp : IIFMAP.keySet()) {
+			for (var tmp : IIFMAP.get(temp).values()) {
+				load(tmp);
 			}
 		}
 	}

@@ -1,3 +1,6 @@
+#antlr4
+src/main/gen
+
 # User-specific stuff
 .idea/
 
