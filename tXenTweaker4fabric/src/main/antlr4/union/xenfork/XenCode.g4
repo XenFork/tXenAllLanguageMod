@@ -27,7 +27,7 @@ COMMENT : '/*' .*? '*/' -> skip;
 
 
 all: sy+;
-sy: jh | field | add | addAll;
+sy: m | jh | field | fieldA;//add | addAll |
 jh: priority | import_;//对于#号键
 field: s | i | f | d | l | b;
 s: str | strings;
@@ -48,10 +48,10 @@ floats: 'floats' NAME ('=' '{' ((FLOAT ',')+FLOAT | FLOAT | ) '}' | )';' | 'val'
 doubles: 'doubles' NAME ('=' '{' ((DOUBLE ',')+DOUBLE | DOUBLE | ) '}' | )';' | 'val' NAME 'as' 'doubles' ('=' '{' ((DOUBLE ',')+DOUBLE | DOUBLE | ) '}' | )';' | 'var' NAME 'as' 'doubles' ('=' '{' ((DOUBLE ',')+DOUBLE | DOUBLE | ) '}' | )';';
 longs: 'longs' NAME ('=' '{' ((LONG ',')+LONG | LONG | ) '}' | )';' | 'val' NAME 'as' 'longs' ('=' '{' ((LONG ',')+LONG | LONG | ) '}' | )';' | 'var' NAME 'as' 'longs' ('=' '{' ((LONG ',')+LONG | LONG | ) '}' | )';' ;
 booleans: 'booleans' NAME ('=' '{' ((BOOL ',')+BOOL | BOOL | ) '}' | )';' | 'bools' NAME ('=' '{' ((BOOL ',')+BOOL | BOOL | ) '}' | )';' | 'val' NAME 'as' 'bools' ('=' '{' ((BOOL ',')+BOOL | BOOL | ) '}' | )';' | 'var' NAME 'as' 'bools' ('=' '{' ((BOOL ',')+BOOL | BOOL | ) '}' | )';' | 'val' NAME 'as' 'booleans' ('=' '{' ((BOOL ',')+BOOL | BOOL | ) '}' | )';' | 'var' NAME 'as' 'booleans' ('=' '{' ((BOOL ',')+BOOL | BOOL | ) '}' | )';';
-import_: '#' NAME '>' (NAME | )';';
+import_: '#' CLASSNAME '>' (NAME | )';';
 priority: '#' INT';' ;
-add: NAME'.''add''(' (STRING | INT | FLOAT | DOUBLE | LONG | BOOL) ')'';' ;
-addAll: NAME'.''addAll''(' (NAME | (STRING',')+STRING | (INT',')+INT | (FLOAT',')+FLOAT | (DOUBLE',')+DOUBLE | (LONG',')+LONG | (BOOL',')+BOOL) ')'';' ;
+//add: NAME'.''add''<<' (STRING | INT | FLOAT | DOUBLE | LONG | BOOL) ';' ;
+//addAll: NAME'.''addAll''<<' (NAME | (STRING',')+STRING | (INT',')+INT | (FLOAT',')+FLOAT | (DOUBLE',')+DOUBLE | (LONG',')+LONG | (BOOL',')+BOOL) ';' ;
 //regin stop
 //regin start
 m: while | for | foreach | print;
@@ -59,16 +59,20 @@ while: 'while' NAME WHILE_BOOL INT '{' (all | ) '}' ;
 for: 'for' NAME INT '<<' INT '{' (all | ) '}' ;
 foreach: 'foreach' NAME '<<' NAME '{' (all | ) '}' ;
 print:  'print'('<<' NAME)+ ';'| 'print' '<<' (NAME',' |(STRING|INT|FLOAT|DOUBLE|BOOL) ',')+(NAME |(STRING|INT|FLOAT|DOUBLE|BOOL))';';
-//regin stop
+fieldA: CLASSNAME '<<' (NAME | STRING | INT | FLOAT | DOUBLE | LONG | BOOL);
 
+
+
+
+CLASSNAME: (NAME '.')+ NAME;
 INT : [0-9]+ ;
 WHILE_BOOL: '<=' | '>=' | '>' | '<' | '==' | '<>' | '!=';
 FLOAT: INT'.'INT('f' | 'F');
 LONG: INT('l' |'L') ;
 DOUBLE: INT'.'INT;
 BOOL: 'true' | 'false';
-NAME: [a-zA-Z]+ | [a-zA-Z]+INT;
-SECONDNAME: [a-z]+ ;
+NAME: [a-zA-Z]+ | ([a-zA-Z]+ INT)+ ( | [a-zA-Z]+) ;
+//[a-zA-Z] | [a-zA-Z]+ | [a-zA-Z]+INT
 STRING: '"' .*? '"';
 WS  : [ \t\r\n]+ -> skip;
 
@@ -80,5 +84,3 @@ WS  : [ \t\r\n]+ -> skip;
     var e = "a";
     val f = 1;
 */
-
-r   : 'hello' NAME';';

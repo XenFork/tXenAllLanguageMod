@@ -1,18 +1,11 @@
 package union.xenfork.txentweaker4fabric;
 
 import net.fabricmc.api.ModInitializer;
-import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.CharStreams;
-import org.antlr.v4.runtime.CommonTokenStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import union.xenfork.g4.XenCodeLexer;
-import union.xenfork.g4.XenCodeParser;
 import union.xenfork.txentweaker4fabric.xencode.Load;
-import union.xenfork.txentweaker4fabric.xencode.Visit;
 
 import java.io.File;
-import java.io.IOException;
 
 import static union.xenfork.txentweaker4fabric.xencode.Load.IIFMAP;
 import static union.xenfork.txentweaker4fabric.xencode.Load.load;

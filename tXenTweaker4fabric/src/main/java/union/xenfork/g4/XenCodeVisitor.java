@@ -158,18 +158,6 @@ public interface XenCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPriority(XenCodeParser.PriorityContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link XenCodeParser#add}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAdd(XenCodeParser.AddContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link XenCodeParser#addAll}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAddAll(XenCodeParser.AddAllContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link XenCodeParser#m}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -200,9 +188,9 @@ public interface XenCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPrint(XenCodeParser.PrintContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link XenCodeParser#r}.
+	 * Visit a parse tree produced by {@link XenCodeParser#fieldA}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitR(XenCodeParser.RContext ctx);
+	T visitFieldA(XenCodeParser.FieldAContext ctx);
 }

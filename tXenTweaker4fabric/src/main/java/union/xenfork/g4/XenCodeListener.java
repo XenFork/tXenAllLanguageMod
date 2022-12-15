@@ -251,26 +251,6 @@ public interface XenCodeListener extends ParseTreeListener {
 	 */
 	void exitPriority(XenCodeParser.PriorityContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link XenCodeParser#add}.
-	 * @param ctx the parse tree
-	 */
-	void enterAdd(XenCodeParser.AddContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link XenCodeParser#add}.
-	 * @param ctx the parse tree
-	 */
-	void exitAdd(XenCodeParser.AddContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link XenCodeParser#addAll}.
-	 * @param ctx the parse tree
-	 */
-	void enterAddAll(XenCodeParser.AddAllContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link XenCodeParser#addAll}.
-	 * @param ctx the parse tree
-	 */
-	void exitAddAll(XenCodeParser.AddAllContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link XenCodeParser#m}.
 	 * @param ctx the parse tree
 	 */
@@ -321,13 +301,13 @@ public interface XenCodeListener extends ParseTreeListener {
 	 */
 	void exitPrint(XenCodeParser.PrintContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link XenCodeParser#r}.
+	 * Enter a parse tree produced by {@link XenCodeParser#fieldA}.
 	 * @param ctx the parse tree
 	 */
-	void enterR(XenCodeParser.RContext ctx);
+	void enterFieldA(XenCodeParser.FieldAContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link XenCodeParser#r}.
+	 * Exit a parse tree produced by {@link XenCodeParser#fieldA}.
 	 * @param ctx the parse tree
 	 */
-	void exitR(XenCodeParser.RContext ctx);
+	void exitFieldA(XenCodeParser.FieldAContext ctx);
 }

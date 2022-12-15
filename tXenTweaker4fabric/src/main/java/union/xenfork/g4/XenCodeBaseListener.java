@@ -308,30 +308,6 @@ public class XenCodeBaseListener implements XenCodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAdd(XenCodeParser.AddContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAdd(XenCodeParser.AddContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterAddAll(XenCodeParser.AddAllContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAddAll(XenCodeParser.AddAllContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterM(XenCodeParser.MContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -392,13 +368,13 @@ public class XenCodeBaseListener implements XenCodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterR(XenCodeParser.RContext ctx) { }
+	@Override public void enterFieldA(XenCodeParser.FieldAContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitR(XenCodeParser.RContext ctx) { }
+	@Override public void exitFieldA(XenCodeParser.FieldAContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
