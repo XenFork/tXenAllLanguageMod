@@ -11,7 +11,7 @@ import static union.xenfork.txentweaker4fabric.xencode.Load.IIFMAP;
 import static union.xenfork.txentweaker4fabric.xencode.Load.load;
 
 public class TXenTweaker4fabric implements ModInitializer {
-	public static final Logger logger = LoggerFactory.getLogger("txen");
+	public static final Logger logger = LoggerFactory.getLogger("tXen");
 	@Override
 	public void onInitialize() {
 		var config = new File(System.getProperty("user.dir"), "config");
