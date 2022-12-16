@@ -4,6 +4,9 @@ import org.reflections.Reflections;
 import union.xenfork.g4.XenCodeBaseVisitor;
 import union.xenfork.g4.XenCodeParser;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.*;
 
 import static union.xenfork.txentweaker4fabric.TXenTweaker4fabric.logger;
@@ -83,15 +86,55 @@ public class Visit extends XenCodeBaseVisitor<Visit> {
 	@Override
 	public Visit visitSy(XenCodeParser.SyContext ctx) {
 		if (ctx.jh() != null) {
-			visitJh(ctx.jh());
-		} else if (ctx.m() != null) {
-			visitM(ctx.m());
-		} else if (ctx.field() != null) {
-			visitField(ctx.field());
+			return visitJh(ctx.jh());
 		} else if (ctx.fieldA() != null) {
-			visitFieldA(ctx.fieldA());
+			return visitFieldA(ctx.fieldA());
+		} else if (ctx.while_() != null) {
+			return visitWhile(ctx.while_());
+		} else if (ctx.for_() != null) {
+			return visitFor(ctx.for_());
+		} else if (ctx.print() != null) {
+			return visitPrint(ctx.print());
+		} else if (ctx.field() != null) {
+			return visitField(ctx.field());
 		}
 		return null;
+	}
+
+	//field to import
+
+
+	@Override
+	public Visit visitFieldA(XenCodeParser.FieldAContext ctx) {
+		String cName = ctx.CLASSNAME().toString();
+		String[] splits = cName.split("\\.");
+		logger.warn(ctx.fa().getText());
+		Class<?> clazz = stringClassMap.get(splits[0]);
+		try {
+			clazz.getDeclaredConstructor().newInstance();
+		} catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+			e.printStackTrace();
+		}
+		try {
+			getInvoke(clazz.getDeclaredMethod(splits[1]), null, splits);
+		} catch (NoSuchMethodException e) {
+			try {
+				getInvoke(null, clazz.getDeclaredField(splits[1]), splits);
+			} catch (NoSuchFieldException ex) {
+				e.printStackTrace();
+				ex.printStackTrace();
+			}
+		}
+
+		return null;
+	}
+
+	public void getInvoke(Method m, Field f, String[] splits) {
+		for (int i = 2; i < splits.length; i++) {
+			if (m != null) {
+
+			}
+		}
 	}
 
 	//field变量

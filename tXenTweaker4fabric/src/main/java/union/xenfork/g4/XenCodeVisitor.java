@@ -158,12 +158,6 @@ public interface XenCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPriority(XenCodeParser.PriorityContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link XenCodeParser#m}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitM(XenCodeParser.MContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link XenCodeParser#while}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -176,12 +170,6 @@ public interface XenCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFor(XenCodeParser.ForContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link XenCodeParser#foreach}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitForeach(XenCodeParser.ForeachContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link XenCodeParser#print}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -193,4 +181,10 @@ public interface XenCodeVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitFieldA(XenCodeParser.FieldAContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link XenCodeParser#fa}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFa(XenCodeParser.FaContext ctx);
 }
