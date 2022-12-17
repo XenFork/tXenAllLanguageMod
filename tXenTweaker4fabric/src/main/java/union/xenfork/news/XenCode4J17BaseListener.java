@@ -1,4 +1,11 @@
-package union.xenfork.news;// Generated from java-escape by ANTLR 4.11.1
+// Generated from java-escape by ANTLR 4.11.1
+
+
+package union.xenfork.news;
+/**
+ * @author baka4n
+ */
+
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -95,6 +102,18 @@ public class XenCode4J17BaseListener implements XenCode4J17Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitIiiv(XenCode4J17Parser.IiivContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIfv(XenCode4J17Parser.IfvContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIfv(XenCode4J17Parser.IfvContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

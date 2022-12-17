@@ -1,4 +1,11 @@
-package union.xenfork.news;// Generated from java-escape by ANTLR 4.11.1
+// Generated from java-escape by ANTLR 4.11.1
+
+
+package union.xenfork.news;
+/**
+ * @author baka4n
+ */
+
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -51,6 +58,12 @@ public interface XenCode4J17Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitIiiv(XenCode4J17Parser.IiivContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link XenCode4J17Parser#ifv}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIfv(XenCode4J17Parser.IfvContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link XenCode4J17Parser#field}.
 	 * @param ctx the parse tree

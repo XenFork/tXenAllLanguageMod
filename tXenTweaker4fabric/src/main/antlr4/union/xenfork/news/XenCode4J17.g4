@@ -1,5 +1,13 @@
 grammar XenCode4J17;//重写
 
+@header {
+
+package union.xenfork.news;
+/**
+ * @author baka4n
+ */
+}
+
 options {
     language = Java;
 }
@@ -16,12 +24,12 @@ jh: ('import' | '#') ((iv ',') | iv)+ END ;
 iv: FILEDA | iiv;
 iiv: FILEDA iiiv;
 iiiv: '<<' NAME;
+ifv: evaluation=EVALUATION ( field__=FILEDA | move | name_=NAME | int_=INT | double_=DOUBLE | float_=FLOAT | string_=STRING | b | boolean_=BOOL | ) | ;
 field:
-    (pre=NAME | )
-    sub=NAME( EVALUATION (move | NAME | INT | DOUBLE | FLOAT | STRING | b | BOOL | ) | ) END;
+    varName=NAME ifv END;
 EVALUATION: '=';
 MOVE: '<-' | '->';
-move: INT MOVE INT ;//<< and >>
+move: pre=INT  mid=MOVE sub=INT ;//<< and >>
 JUDGE: '==' | '>=' | '<=' | '!=' | '<>' | '<' | '>'/*equals*/;
 
 method: '{' '}';

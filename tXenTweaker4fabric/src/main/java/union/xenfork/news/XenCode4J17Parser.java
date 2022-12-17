@@ -1,4 +1,11 @@
-package union.xenfork.news;// Generated from java-escape by ANTLR 4.11.1
+// Generated from java-escape by ANTLR 4.11.1
+
+
+package union.xenfork.news;
+/**
+ * @author baka4n
+ */
+
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -21,12 +28,12 @@ public class XenCode4J17Parser extends Parser {
 		LONG=17, BOOL=18, NAME=19, FILEDA=20, STRING=21;
 	public static final int
 		RULE_all = 0, RULE_union = 1, RULE_xenfork = 2, RULE_jh = 3, RULE_iv = 4, 
-		RULE_iiv = 5, RULE_iiiv = 6, RULE_field = 7, RULE_move = 8, RULE_method = 9, 
-		RULE_b = 10;
+		RULE_iiv = 5, RULE_iiiv = 6, RULE_ifv = 7, RULE_field = 8, RULE_move = 9, 
+		RULE_method = 10, RULE_b = 11;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"all", "union", "xenfork", "jh", "iv", "iiv", "iiiv", "field", "move", 
-			"method", "b"
+			"all", "union", "xenfork", "jh", "iv", "iiv", "iiiv", "ifv", "field", 
+			"move", "method", "b"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -118,7 +125,7 @@ public class XenCode4J17Parser extends Parser {
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof XenCode4J17Visitor) return ((XenCode4J17Visitor<? extends T>)visitor).visitAll(this);
+			if ( visitor instanceof XenCode4J17Visitor ) return ((XenCode4J17Visitor<? extends T>)visitor).visitAll(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -130,17 +137,17 @@ public class XenCode4J17Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(23); 
+			setState(25); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(22);
+				setState(24);
 				union();
 				}
 				}
-				setState(25); 
+				setState(27); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( ((_la) & ~0x3f) == 0 && ((1L << _la) & 524326L) != 0 );
@@ -176,7 +183,7 @@ public class XenCode4J17Parser extends Parser {
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof XenCode4J17Visitor) return ((XenCode4J17Visitor<? extends T>)visitor).visitUnion(this);
+			if ( visitor instanceof XenCode4J17Visitor ) return ((XenCode4J17Visitor<? extends T>)visitor).visitUnion(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -187,7 +194,7 @@ public class XenCode4J17Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(27);
+			setState(29);
 			xenfork();
 			}
 		}
@@ -227,7 +234,7 @@ public class XenCode4J17Parser extends Parser {
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof XenCode4J17Visitor) return ((XenCode4J17Visitor<? extends T>)visitor).visitXenfork(this);
+			if ( visitor instanceof XenCode4J17Visitor ) return ((XenCode4J17Visitor<? extends T>)visitor).visitXenfork(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -236,28 +243,28 @@ public class XenCode4J17Parser extends Parser {
 		XenforkContext _localctx = new XenforkContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_xenfork);
 		try {
-			setState(32);
+			setState(34);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__0:
 			case T__1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(29);
+				setState(31);
 				jh();
 				}
 				break;
 			case T__4:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(30);
+				setState(32);
 				method();
 				}
 				break;
 			case NAME:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(31);
+				setState(33);
 				field();
 				}
 				break;
@@ -299,7 +306,7 @@ public class XenCode4J17Parser extends Parser {
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof XenCode4J17Visitor) return ((XenCode4J17Visitor<? extends T>)visitor).visitJh(this);
+			if ( visitor instanceof XenCode4J17Visitor ) return ((XenCode4J17Visitor<? extends T>)visitor).visitJh(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -311,7 +318,7 @@ public class XenCode4J17Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(34);
+			setState(36);
 			_la = _input.LA(1);
 			if ( !(_la==T__0 || _la==T__1) ) {
 			_errHandler.recoverInline(this);
@@ -321,37 +328,37 @@ public class XenCode4J17Parser extends Parser {
 				_errHandler.reportMatch(this);
 				consume();
 			}
-			setState(39); 
+			setState(41); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
-				setState(39);
+				setState(41);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 				case 1:
 					{
 					{
-					setState(35);
+					setState(37);
 					iv();
-					setState(36);
+					setState(38);
 					match(T__2);
 					}
 					}
 					break;
 				case 2:
 					{
-					setState(38);
+					setState(40);
 					iv();
 					}
 					break;
 				}
 				}
-				setState(41); 
+				setState(43); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==FILEDA );
-			setState(43);
+			setState(45);
 			match(END);
 			}
 		}
@@ -386,7 +393,7 @@ public class XenCode4J17Parser extends Parser {
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof XenCode4J17Visitor) return ((XenCode4J17Visitor<? extends T>)visitor).visitIv(this);
+			if ( visitor instanceof XenCode4J17Visitor ) return ((XenCode4J17Visitor<? extends T>)visitor).visitIv(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -395,20 +402,20 @@ public class XenCode4J17Parser extends Parser {
 		IvContext _localctx = new IvContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_iv);
 		try {
-			setState(47);
+			setState(49);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(45);
+				setState(47);
 				match(FILEDA);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(46);
+				setState(48);
 				iiv();
 				}
 				break;
@@ -445,7 +452,7 @@ public class XenCode4J17Parser extends Parser {
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof XenCode4J17Visitor) return ((XenCode4J17Visitor<? extends T>)visitor).visitIiv(this);
+			if ( visitor instanceof XenCode4J17Visitor ) return ((XenCode4J17Visitor<? extends T>)visitor).visitIiv(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -456,9 +463,9 @@ public class XenCode4J17Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(49);
+			setState(51);
 			match(FILEDA);
-			setState(50);
+			setState(52);
 			iiiv();
 			}
 		}
@@ -490,7 +497,7 @@ public class XenCode4J17Parser extends Parser {
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof XenCode4J17Visitor) return ((XenCode4J17Visitor<? extends T>)visitor).visitIiiv(this);
+			if ( visitor instanceof XenCode4J17Visitor ) return ((XenCode4J17Visitor<? extends T>)visitor).visitIiiv(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -501,9 +508,9 @@ public class XenCode4J17Parser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(52);
+			setState(54);
 			match(T__3);
-			setState(53);
+			setState(55);
 			match(NAME);
 			}
 		}
@@ -519,26 +526,152 @@ public class XenCode4J17Parser extends Parser {
 	}
 
 	@SuppressWarnings("CheckReturnValue")
-	public static class FieldContext extends ParserRuleContext {
-		public Token pre;
-		public Token sub;
-		public TerminalNode END() { return getToken(XenCode4J17Parser.END, 0); }
-		public List<TerminalNode> NAME() { return getTokens(XenCode4J17Parser.NAME); }
-		public TerminalNode NAME(int i) {
-			return getToken(XenCode4J17Parser.NAME, i);
-		}
+	public static class IfvContext extends ParserRuleContext {
+		public Token evaluation;
+		public Token field__;
+		public Token name_;
+		public Token int_;
+		public Token double_;
+		public Token float_;
+		public Token string_;
+		public Token boolean_;
 		public TerminalNode EVALUATION() { return getToken(XenCode4J17Parser.EVALUATION, 0); }
 		public MoveContext move() {
 			return getRuleContext(MoveContext.class,0);
 		}
+		public BContext b() {
+			return getRuleContext(BContext.class,0);
+		}
+		public TerminalNode FILEDA() { return getToken(XenCode4J17Parser.FILEDA, 0); }
+		public TerminalNode NAME() { return getToken(XenCode4J17Parser.NAME, 0); }
 		public TerminalNode INT() { return getToken(XenCode4J17Parser.INT, 0); }
 		public TerminalNode DOUBLE() { return getToken(XenCode4J17Parser.DOUBLE, 0); }
 		public TerminalNode FLOAT() { return getToken(XenCode4J17Parser.FLOAT, 0); }
 		public TerminalNode STRING() { return getToken(XenCode4J17Parser.STRING, 0); }
-		public BContext b() {
-			return getRuleContext(BContext.class,0);
-		}
 		public TerminalNode BOOL() { return getToken(XenCode4J17Parser.BOOL, 0); }
+		public IfvContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_ifv; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof XenCode4J17Listener ) ((XenCode4J17Listener)listener).enterIfv(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof XenCode4J17Listener ) ((XenCode4J17Listener)listener).exitIfv(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof XenCode4J17Visitor ) return ((XenCode4J17Visitor<? extends T>)visitor).visitIfv(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final IfvContext ifv() throws RecognitionException {
+		IfvContext _localctx = new IfvContext(_ctx, getState());
+		enterRule(_localctx, 14, RULE_ifv);
+		try {
+			setState(71);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case EVALUATION:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(57);
+				((IfvContext)_localctx).evaluation = match(EVALUATION);
+				setState(68);
+				_errHandler.sync(this);
+				switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
+				case 1:
+					{
+					setState(58);
+					((IfvContext)_localctx).field__ = match(FILEDA);
+					}
+					break;
+				case 2:
+					{
+					setState(59);
+					move();
+					}
+					break;
+				case 3:
+					{
+					setState(60);
+					((IfvContext)_localctx).name_ = match(NAME);
+					}
+					break;
+				case 4:
+					{
+					setState(61);
+					((IfvContext)_localctx).int_ = match(INT);
+					}
+					break;
+				case 5:
+					{
+					setState(62);
+					((IfvContext)_localctx).double_ = match(DOUBLE);
+					}
+					break;
+				case 6:
+					{
+					setState(63);
+					((IfvContext)_localctx).float_ = match(FLOAT);
+					}
+					break;
+				case 7:
+					{
+					setState(64);
+					((IfvContext)_localctx).string_ = match(STRING);
+					}
+					break;
+				case 8:
+					{
+					setState(65);
+					b();
+					}
+					break;
+				case 9:
+					{
+					setState(66);
+					((IfvContext)_localctx).boolean_ = match(BOOL);
+					}
+					break;
+				case 10:
+					{
+					}
+					break;
+				}
+				}
+				break;
+			case END:
+				enterOuterAlt(_localctx, 2);
+				{
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class FieldContext extends ParserRuleContext {
+		public Token varName;
+		public IfvContext ifv() {
+			return getRuleContext(IfvContext.class,0);
+		}
+		public TerminalNode END() { return getToken(XenCode4J17Parser.END, 0); }
+		public TerminalNode NAME() { return getToken(XenCode4J17Parser.NAME, 0); }
 		public FieldContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -553,105 +686,21 @@ public class XenCode4J17Parser extends Parser {
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof XenCode4J17Visitor) return ((XenCode4J17Visitor<? extends T>)visitor).visitField(this);
+			if ( visitor instanceof XenCode4J17Visitor ) return ((XenCode4J17Visitor<? extends T>)visitor).visitField(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final FieldContext field() throws RecognitionException {
 		FieldContext _localctx = new FieldContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_field);
+		enterRule(_localctx, 16, RULE_field);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(57);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
-			case 1:
-				{
-				setState(55);
-				((FieldContext)_localctx).pre = match(NAME);
-				}
-				break;
-			case 2:
-				{
-				}
-				break;
-			}
-			setState(59);
-			((FieldContext)_localctx).sub = match(NAME);
 			setState(73);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case EVALUATION:
-				{
-				setState(60);
-				match(EVALUATION);
-				setState(70);
-				_errHandler.sync(this);
-				switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
-				case 1:
-					{
-					setState(61);
-					move();
-					}
-					break;
-				case 2:
-					{
-					setState(62);
-					match(NAME);
-					}
-					break;
-				case 3:
-					{
-					setState(63);
-					match(INT);
-					}
-					break;
-				case 4:
-					{
-					setState(64);
-					match(DOUBLE);
-					}
-					break;
-				case 5:
-					{
-					setState(65);
-					match(FLOAT);
-					}
-					break;
-				case 6:
-					{
-					setState(66);
-					match(STRING);
-					}
-					break;
-				case 7:
-					{
-					setState(67);
-					b();
-					}
-					break;
-				case 8:
-					{
-					setState(68);
-					match(BOOL);
-					}
-					break;
-				case 9:
-					{
-					}
-					break;
-				}
-				}
-				break;
-			case END:
-				{
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
+			((FieldContext)_localctx).varName = match(NAME);
+			setState(74);
+			ifv();
 			setState(75);
 			match(END);
 			}
@@ -669,6 +718,9 @@ public class XenCode4J17Parser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class MoveContext extends ParserRuleContext {
+		public Token pre;
+		public Token mid;
+		public Token sub;
 		public List<TerminalNode> INT() { return getTokens(XenCode4J17Parser.INT); }
 		public TerminalNode INT(int i) {
 			return getToken(XenCode4J17Parser.INT, i);
@@ -688,23 +740,23 @@ public class XenCode4J17Parser extends Parser {
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof XenCode4J17Visitor) return ((XenCode4J17Visitor<? extends T>)visitor).visitMove(this);
+			if ( visitor instanceof XenCode4J17Visitor ) return ((XenCode4J17Visitor<? extends T>)visitor).visitMove(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final MoveContext move() throws RecognitionException {
 		MoveContext _localctx = new MoveContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_move);
+		enterRule(_localctx, 18, RULE_move);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(77);
-			match(INT);
+			((MoveContext)_localctx).pre = match(INT);
 			setState(78);
-			match(MOVE);
+			((MoveContext)_localctx).mid = match(MOVE);
 			setState(79);
-			match(INT);
+			((MoveContext)_localctx).sub = match(INT);
 			}
 		}
 		catch (RecognitionException re) {
@@ -734,14 +786,14 @@ public class XenCode4J17Parser extends Parser {
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof XenCode4J17Visitor) return ((XenCode4J17Visitor<? extends T>)visitor).visitMethod(this);
+			if ( visitor instanceof XenCode4J17Visitor ) return ((XenCode4J17Visitor<? extends T>)visitor).visitMethod(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final MethodContext method() throws RecognitionException {
 		MethodContext _localctx = new MethodContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_method);
+		enterRule(_localctx, 20, RULE_method);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
@@ -810,14 +862,14 @@ public class XenCode4J17Parser extends Parser {
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof XenCode4J17Visitor) return ((XenCode4J17Visitor<? extends T>)visitor).visitB(this);
+			if ( visitor instanceof XenCode4J17Visitor ) return ((XenCode4J17Visitor<? extends T>)visitor).visitB(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final BContext b() throws RecognitionException {
 		BContext _localctx = new BContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_b);
+		enterRule(_localctx, 22, RULE_b);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -863,56 +915,55 @@ public class XenCode4J17Parser extends Parser {
 		"\u0004\u0001\u0015Y\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
 		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
-		"\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0001\u0000\u0004\u0000\u0018"+
-		"\b\u0000\u000b\u0000\f\u0000\u0019\u0001\u0001\u0001\u0001\u0001\u0002"+
-		"\u0001\u0002\u0001\u0002\u0003\u0002!\b\u0002\u0001\u0003\u0001\u0003"+
-		"\u0001\u0003\u0001\u0003\u0001\u0003\u0004\u0003(\b\u0003\u000b\u0003"+
-		"\f\u0003)\u0001\u0003\u0001\u0003\u0001\u0004\u0001\u0004\u0003\u0004"+
-		"0\b\u0004\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0006\u0001\u0006"+
-		"\u0001\u0006\u0001\u0007\u0001\u0007\u0003\u0007:\b\u0007\u0001\u0007"+
-		"\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007"+
-		"\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0003\u0007G\b\u0007"+
-		"\u0001\u0007\u0003\u0007J\b\u0007\u0001\u0007\u0001\u0007\u0001\b\u0001"+
-		"\b\u0001\b\u0001\b\u0001\t\u0001\t\u0001\t\u0001\n\u0001\n\u0001\n\u0001"+
-		"\n\u0001\n\u0000\u0000\u000b\u0000\u0002\u0004\u0006\b\n\f\u000e\u0010"+
-		"\u0012\u0014\u0000\u0002\u0001\u0000\u0001\u0002\u0002\u0000\u000e\u0013"+
-		"\u0015\u0015]\u0000\u0017\u0001\u0000\u0000\u0000\u0002\u001b\u0001\u0000"+
-		"\u0000\u0000\u0004 \u0001\u0000\u0000\u0000\u0006\"\u0001\u0000\u0000"+
-		"\u0000\b/\u0001\u0000\u0000\u0000\n1\u0001\u0000\u0000\u0000\f4\u0001"+
-		"\u0000\u0000\u0000\u000e9\u0001\u0000\u0000\u0000\u0010M\u0001\u0000\u0000"+
-		"\u0000\u0012Q\u0001\u0000\u0000\u0000\u0014T\u0001\u0000\u0000\u0000\u0016"+
-		"\u0018\u0003\u0002\u0001\u0000\u0017\u0016\u0001\u0000\u0000\u0000\u0018"+
-		"\u0019\u0001\u0000\u0000\u0000\u0019\u0017\u0001\u0000\u0000\u0000\u0019"+
-		"\u001a\u0001\u0000\u0000\u0000\u001a\u0001\u0001\u0000\u0000\u0000\u001b"+
-		"\u001c\u0003\u0004\u0002\u0000\u001c\u0003\u0001\u0000\u0000\u0000\u001d"+
-		"!\u0003\u0006\u0003\u0000\u001e!\u0003\u0012\t\u0000\u001f!\u0003\u000e"+
-		"\u0007\u0000 \u001d\u0001\u0000\u0000\u0000 \u001e\u0001\u0000\u0000\u0000"+
-		" \u001f\u0001\u0000\u0000\u0000!\u0005\u0001\u0000\u0000\u0000\"\'\u0007"+
-		"\u0000\u0000\u0000#$\u0003\b\u0004\u0000$%\u0005\u0003\u0000\u0000%(\u0001"+
-		"\u0000\u0000\u0000&(\u0003\b\u0004\u0000\'#\u0001\u0000\u0000\u0000\'"+
-		"&\u0001\u0000\u0000\u0000()\u0001\u0000\u0000\u0000)\'\u0001\u0000\u0000"+
-		"\u0000)*\u0001\u0000\u0000\u0000*+\u0001\u0000\u0000\u0000+,\u0005\n\u0000"+
-		"\u0000,\u0007\u0001\u0000\u0000\u0000-0\u0005\u0014\u0000\u0000.0\u0003"+
-		"\n\u0005\u0000/-\u0001\u0000\u0000\u0000/.\u0001\u0000\u0000\u00000\t"+
-		"\u0001\u0000\u0000\u000012\u0005\u0014\u0000\u000023\u0003\f\u0006\u0000"+
-		"3\u000b\u0001\u0000\u0000\u000045\u0005\u0004\u0000\u000056\u0005\u0013"+
-		"\u0000\u00006\r\u0001\u0000\u0000\u00007:\u0005\u0013\u0000\u00008:\u0001"+
-		"\u0000\u0000\u000097\u0001\u0000\u0000\u000098\u0001\u0000\u0000\u0000"+
-		":;\u0001\u0000\u0000\u0000;I\u0005\u0013\u0000\u0000<F\u0005\u000b\u0000"+
-		"\u0000=G\u0003\u0010\b\u0000>G\u0005\u0013\u0000\u0000?G\u0005\u000e\u0000"+
-		"\u0000@G\u0005\u0010\u0000\u0000AG\u0005\u000f\u0000\u0000BG\u0005\u0015"+
-		"\u0000\u0000CG\u0003\u0014\n\u0000DG\u0005\u0012\u0000\u0000EG\u0001\u0000"+
-		"\u0000\u0000F=\u0001\u0000\u0000\u0000F>\u0001\u0000\u0000\u0000F?\u0001"+
-		"\u0000\u0000\u0000F@\u0001\u0000\u0000\u0000FA\u0001\u0000\u0000\u0000"+
-		"FB\u0001\u0000\u0000\u0000FC\u0001\u0000\u0000\u0000FD\u0001\u0000\u0000"+
-		"\u0000FE\u0001\u0000\u0000\u0000GJ\u0001\u0000\u0000\u0000HJ\u0001\u0000"+
-		"\u0000\u0000I<\u0001\u0000\u0000\u0000IH\u0001\u0000\u0000\u0000JK\u0001"+
-		"\u0000\u0000\u0000KL\u0005\n\u0000\u0000L\u000f\u0001\u0000\u0000\u0000"+
-		"MN\u0005\u000e\u0000\u0000NO\u0005\f\u0000\u0000OP\u0005\u000e\u0000\u0000"+
-		"P\u0011\u0001\u0000\u0000\u0000QR\u0005\u0005\u0000\u0000RS\u0005\u0006"+
-		"\u0000\u0000S\u0013\u0001\u0000\u0000\u0000TU\u0007\u0001\u0000\u0000"+
-		"UV\u0005\r\u0000\u0000VW\u0007\u0001\u0000\u0000W\u0015\u0001\u0000\u0000"+
-		"\u0000\b\u0019 \')/9FI";
+		"\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0002\u000b\u0007\u000b\u0001"+
+		"\u0000\u0004\u0000\u001a\b\u0000\u000b\u0000\f\u0000\u001b\u0001\u0001"+
+		"\u0001\u0001\u0001\u0002\u0001\u0002\u0001\u0002\u0003\u0002#\b\u0002"+
+		"\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0004\u0003"+
+		"*\b\u0003\u000b\u0003\f\u0003+\u0001\u0003\u0001\u0003\u0001\u0004\u0001"+
+		"\u0004\u0003\u00042\b\u0004\u0001\u0005\u0001\u0005\u0001\u0005\u0001"+
+		"\u0006\u0001\u0006\u0001\u0006\u0001\u0007\u0001\u0007\u0001\u0007\u0001"+
+		"\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001"+
+		"\u0007\u0001\u0007\u0003\u0007E\b\u0007\u0001\u0007\u0003\u0007H\b\u0007"+
+		"\u0001\b\u0001\b\u0001\b\u0001\b\u0001\t\u0001\t\u0001\t\u0001\t\u0001"+
+		"\n\u0001\n\u0001\n\u0001\u000b\u0001\u000b\u0001\u000b\u0001\u000b\u0001"+
+		"\u000b\u0000\u0000\f\u0000\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014"+
+		"\u0016\u0000\u0002\u0001\u0000\u0001\u0002\u0002\u0000\u000e\u0013\u0015"+
+		"\u0015\\\u0000\u0019\u0001\u0000\u0000\u0000\u0002\u001d\u0001\u0000\u0000"+
+		"\u0000\u0004\"\u0001\u0000\u0000\u0000\u0006$\u0001\u0000\u0000\u0000"+
+		"\b1\u0001\u0000\u0000\u0000\n3\u0001\u0000\u0000\u0000\f6\u0001\u0000"+
+		"\u0000\u0000\u000eG\u0001\u0000\u0000\u0000\u0010I\u0001\u0000\u0000\u0000"+
+		"\u0012M\u0001\u0000\u0000\u0000\u0014Q\u0001\u0000\u0000\u0000\u0016T"+
+		"\u0001\u0000\u0000\u0000\u0018\u001a\u0003\u0002\u0001\u0000\u0019\u0018"+
+		"\u0001\u0000\u0000\u0000\u001a\u001b\u0001\u0000\u0000\u0000\u001b\u0019"+
+		"\u0001\u0000\u0000\u0000\u001b\u001c\u0001\u0000\u0000\u0000\u001c\u0001"+
+		"\u0001\u0000\u0000\u0000\u001d\u001e\u0003\u0004\u0002\u0000\u001e\u0003"+
+		"\u0001\u0000\u0000\u0000\u001f#\u0003\u0006\u0003\u0000 #\u0003\u0014"+
+		"\n\u0000!#\u0003\u0010\b\u0000\"\u001f\u0001\u0000\u0000\u0000\" \u0001"+
+		"\u0000\u0000\u0000\"!\u0001\u0000\u0000\u0000#\u0005\u0001\u0000\u0000"+
+		"\u0000$)\u0007\u0000\u0000\u0000%&\u0003\b\u0004\u0000&\'\u0005\u0003"+
+		"\u0000\u0000\'*\u0001\u0000\u0000\u0000(*\u0003\b\u0004\u0000)%\u0001"+
+		"\u0000\u0000\u0000)(\u0001\u0000\u0000\u0000*+\u0001\u0000\u0000\u0000"+
+		"+)\u0001\u0000\u0000\u0000+,\u0001\u0000\u0000\u0000,-\u0001\u0000\u0000"+
+		"\u0000-.\u0005\n\u0000\u0000.\u0007\u0001\u0000\u0000\u0000/2\u0005\u0014"+
+		"\u0000\u000002\u0003\n\u0005\u00001/\u0001\u0000\u0000\u000010\u0001\u0000"+
+		"\u0000\u00002\t\u0001\u0000\u0000\u000034\u0005\u0014\u0000\u000045\u0003"+
+		"\f\u0006\u00005\u000b\u0001\u0000\u0000\u000067\u0005\u0004\u0000\u0000"+
+		"78\u0005\u0013\u0000\u00008\r\u0001\u0000\u0000\u00009D\u0005\u000b\u0000"+
+		"\u0000:E\u0005\u0014\u0000\u0000;E\u0003\u0012\t\u0000<E\u0005\u0013\u0000"+
+		"\u0000=E\u0005\u000e\u0000\u0000>E\u0005\u0010\u0000\u0000?E\u0005\u000f"+
+		"\u0000\u0000@E\u0005\u0015\u0000\u0000AE\u0003\u0016\u000b\u0000BE\u0005"+
+		"\u0012\u0000\u0000CE\u0001\u0000\u0000\u0000D:\u0001\u0000\u0000\u0000"+
+		"D;\u0001\u0000\u0000\u0000D<\u0001\u0000\u0000\u0000D=\u0001\u0000\u0000"+
+		"\u0000D>\u0001\u0000\u0000\u0000D?\u0001\u0000\u0000\u0000D@\u0001\u0000"+
+		"\u0000\u0000DA\u0001\u0000\u0000\u0000DB\u0001\u0000\u0000\u0000DC\u0001"+
+		"\u0000\u0000\u0000EH\u0001\u0000\u0000\u0000FH\u0001\u0000\u0000\u0000"+
+		"G9\u0001\u0000\u0000\u0000GF\u0001\u0000\u0000\u0000H\u000f\u0001\u0000"+
+		"\u0000\u0000IJ\u0005\u0013\u0000\u0000JK\u0003\u000e\u0007\u0000KL\u0005"+
+		"\n\u0000\u0000L\u0011\u0001\u0000\u0000\u0000MN\u0005\u000e\u0000\u0000"+
+		"NO\u0005\f\u0000\u0000OP\u0005\u000e\u0000\u0000P\u0013\u0001\u0000\u0000"+
+		"\u0000QR\u0005\u0005\u0000\u0000RS\u0005\u0006\u0000\u0000S\u0015\u0001"+
+		"\u0000\u0000\u0000TU\u0007\u0001\u0000\u0000UV\u0005\r\u0000\u0000VW\u0007"+
+		"\u0001\u0000\u0000W\u0017\u0001\u0000\u0000\u0000\u0007\u001b\")+1DG";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

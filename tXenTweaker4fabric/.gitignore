@@ -119,3 +119,7 @@ run/
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
+/src/main/java/union/xenfork/news/XenCode4J17.interp
+/src/main/java/union/xenfork/news/XenCode4J17.tokens
+/src/main/java/union/xenfork/news/XenCode4J17Lexer.interp
+/src/main/java/union/xenfork/news/XenCode4J17Lexer.tokens

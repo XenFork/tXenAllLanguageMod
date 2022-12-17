@@ -1,4 +1,11 @@
-package union.xenfork.news;// Generated from java-escape by ANTLR 4.11.1
+// Generated from java-escape by ANTLR 4.11.1
+
+
+package union.xenfork.news;
+/**
+ * @author baka4n
+ */
+
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;

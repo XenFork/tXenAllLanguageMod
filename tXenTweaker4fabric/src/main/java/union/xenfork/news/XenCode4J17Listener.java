@@ -1,4 +1,11 @@
-package union.xenfork.news;// Generated from java-escape by ANTLR 4.11.1
+// Generated from java-escape by ANTLR 4.11.1
+
+
+package union.xenfork.news;
+/**
+ * @author baka4n
+ */
+
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -76,6 +83,16 @@ public interface XenCode4J17Listener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitIiiv(XenCode4J17Parser.IiivContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link XenCode4J17Parser#ifv}.
+	 * @param ctx the parse tree
+	 */
+	void enterIfv(XenCode4J17Parser.IfvContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link XenCode4J17Parser#ifv}.
+	 * @param ctx the parse tree
+	 */
+	void exitIfv(XenCode4J17Parser.IfvContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link XenCode4J17Parser#field}.
 	 * @param ctx the parse tree
