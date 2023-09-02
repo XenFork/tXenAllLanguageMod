@@ -1,0 +1,20 @@
+plugins {
+    id "antlr"
+}
+
+dependencies {
+    antlr 'org.antlr:antlr4:4.13.0'
+    implementation 'org.antlr:antlr4-runtime:4.13.0'
+}
+
+sourceSets {
+    generated {
+        java.srcDir 'generated-src/antlr/main'
+    }
+}
+
+generateGrammarSource {
+    maxHeapSize = '64m'
+    arguments += ['-visitor', '-listener', '-long-messages', '-package', 'union.xenfork.xenscript.parser']
+    outputDirectory = new File(project.buildDir.toString() + "/generated-src/antlr/main/union/xenfork/xenscript/parser")
+}

@@ -8,7 +8,7 @@ architectury {
 }
 
 subprojects {
-    if (project.name.equals("common") || project.name.equals("forge") || project.name.equals("fabric")) {
+    if (project.name.equals("neoforged") || project.name.equals("common") || project.name.equals("forge") || project.name.equals("fabric")) {
         apply plugin: "dev.architectury.loom"
 
         loom {
@@ -21,12 +21,14 @@ subprojects {
 //            mappings loom.officialMojangMappings()
             // The following line declares the yarn mappings you may select this one as well.
              mappings "net.fabricmc:yarn:1.20.1+build.10:v2"
+
+            implementation 'org.antlr:antlr4:4.13.0'
+            implementation 'org.antlr:antlr4-runtime:4.13.0'
         }
     }
-
-
-
 }
+
+
 
 allprojects {
     apply plugin: "java"
@@ -38,12 +40,10 @@ allprojects {
     group = rootProject.maven_group
 
     repositories {
-        // Add repositories to retrieve artifacts from in here.
-        // You should only use this when depending on other mods because
-        // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-        // See https://docs.gradle.org/current/userguide/declaring_repositories.html
-        // for more information about repositories.
+        mavenCentral()
     }
+
+
 
     tasks.withType(JavaCompile) {
         options.encoding = "UTF-8"
