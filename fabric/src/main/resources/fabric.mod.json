@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "tXenAllLanguageMod",
+  "version": "${version}",
+
+  "name": "tXenAllLanguageMod",
+  "description": "",
+  "authors": [],
+  "contact": {},
+
+  "license": "MIT",
+  "icon": "icon.png",
+
+  "environment": "*",
+  "entrypoints": {},
+  "mixins": [
+    "tXenAllLanguageMod.mixins.json",
+    "tXenAllLanguageMod-common.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.22",
+    "minecraft": ">=1.20.1"
+  }
+}
