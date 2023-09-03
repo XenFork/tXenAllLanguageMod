@@ -43,11 +43,13 @@ allprojects {
         mavenCentral()
     }
 
+    dependencies {
+        implementation 'cn.hutool:hutool-core:5.8.16'
+    }
 
-
-    tasks.withType(JavaCompile) {
+    tasks.withType(JavaCompile).configureEach {
         options.encoding = "UTF-8"
-        options.release = 17
+        options.release.set(17)
     }
 
     java {

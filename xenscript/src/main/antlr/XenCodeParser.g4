@@ -3,24 +3,38 @@ parser grammar XenCodeParser;
 options {
     tokenVocab = XenCodeLexer;
 }
-all: thread+;// more and more bus
-thread: priority | importLoaderExpr | expr;// all bus
+thread: (priority | ) (loaderExpr+ | ) (importExpr+ | ) ((forExpr | whileExpr | expr)+ | );// all bus
+loaderExpr: IL NAMED END;// such as # a_xcs; to use a.xcs this script or #a_b_xcs; to use a_b.xcs or a.b.xcs //check some script
 priority: IL NUMBER END;// priority
-importLoaderExpr: IL NAMED ((SPLIT NAMED)+ | ) END;// if NAMED = 1 loader, else import
-expr: (forExpr | whileExpr | (expression | ) END)+;
-forBlock: (STRING | NUMBER | PRECISION | NAMED) ((SUBLEVEL NAMED) | ) LA (STRING | NUMBER | PRECISION | NAMED);
-whileBlock: (STRING | NUMBER | PRECISION | NAMED) bool (STRING | NUMBER | PRECISION | NAMED);
+importExpr: IL NAMED (SPLIT NAMED)+ END;
+expr: (expression | ) END;
+forBlock: type ((SUBLEVEL NAMED) | ) LA type;
+whileBlock: type bool type;
 bool: LA | RA | L | R | EQUALS | AND | OR;
 forExpr: FOR forBlock LB (expr | ) RB;
 whileExpr: WHILE whileBlock LB (expr | ) RB;
 expression
-    :  STRING # stringExpr
-    |  (VAR | VAL | ) (NAMED | NAMED ASSIGN expression) #varValExpr
-    |  NUMBER # numberExpr
-    |  PRECISION # precisionExpr
-    |  NAMED # nameExpr
-    |  BOOL # boolExpr
+    :  STRING                           # stringExpr
+    |  assignBlock                      # assignExpr
+    |  VAR assignBlock                  # varExpr
+    |  VAL assignBlock                  # valExpr
+    |  NUMBER                           # defaultNumberExpr
+    |  PRECISION                        # defaultPrecisionExpr
+    |  NAMED                            # nameExpr
+    |  not BOOL                         # defaultBoolExpr
+    |  not boolBlock                    # boolExpr
+    |  name_split                       # fieldExpr
+    |  name_split INVOKE types          # methodExpr
+    |  type operation type              # operationExpr
+    |  types                            # arrayExpr
     ;
+not: NOT | ;
+operation: ADD | SUB | MUL | DIV;
+boolBlock: type bool type;//string bool have version select and more
+assignBlock: NAMED | NAMED ASSIGN expression;
+name_split: NAMED (SPLIT NAMED)+;
+types: type ((SUBLEVEL type)+ | ) | ;
+type: STRING | NUMBER | PRECISION | NAMED;
 
 // test
 /*
@@ -39,4 +53,8 @@ var b = 0;
 while b <= 0 {
 
 }
+
+a.b <- "a";
+a.b;
+var c = 1+1;
 */

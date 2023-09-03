@@ -5,6 +5,7 @@ plugins {
 dependencies {
     antlr 'org.antlr:antlr4:4.13.0'
     implementation 'org.antlr:antlr4-runtime:4.13.0'
+
 }
 
 sourceSets {
