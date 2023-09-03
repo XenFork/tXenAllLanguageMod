@@ -1,10 +1,37 @@
 lexer grammar XenCodeLexer;
 
-NUMBER: [0-9]+; //涵盖所有整型数字
-PRECISION:NUMBER '.' NUMBER;//涵盖所有精数
-NAMED: [0-9a-zA-Z_]+;//变量名，类名等
-STRING: '"' (~["\\\r\n] | EscapeSequence)* '"';//字符串
-END: ';';
+channels {
+    SPACE_CHANNEL,
+    COMMENTS_CHANNEL
+}
+VAL: 'val';
+VAR: 'var';
+FOR: 'for';
+WHILE: 'while';
+BOOL: 'true' | 'false' | 'True' | 'False';
+SUBLEVEL: ',';
+LA: '<=';
+RA: '=>';//R assign or lambda
+L: '<';
+R: '>';
+AND: '&&';
+OR: '||';
+LB: '{';
+RB: '}';
+ASSIGN: '=';
+EQUALS: '==';
+SPLIT: '.';
+
+INVOKE: '<-'; // method invoker
+OUT: '->'; // output method some vararg to val or var
+NUMBER: [0-9]+; //all number
+PRECISION:NUMBER '.' NUMBER;// all float or double
+NAMED: [0-9a-zA-Z_]+;//var val name
+END: ';';// the end
+IL: '#';// import and loader
+
+STRING: '"' (~["\\\r\n] | EscapeSequence)* '"';// string using java
+
 fragment EscapeSequence
     : '\\' 'u005c'? [btnfr"'\\]
     | '\\' 'u005c'? ([0-3]? [0-7])? [0-7]
@@ -14,3 +41,7 @@ fragment EscapeSequence
 fragment HexDigit
     : [0-9a-fA-F]
     ;
+
+WHITE_SPACE: [ \t\r\n]+ -> channel(SPACE_CHANNEL);
+BLOCK_COMMENT: '/*' .*? '*/' -> channel(COMMENTS_CHANNEL);
+LINE_COMMENT: '//' ~[\r\n]* -> channel(COMMENTS_CHANNEL);
