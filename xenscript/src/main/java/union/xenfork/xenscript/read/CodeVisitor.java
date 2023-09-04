@@ -62,6 +62,7 @@ public class CodeVisitor extends XenCodeParserBaseVisitor<Object> {
             util.subclass(Object.class);
         }
         util.name(name);
+        util.defaultMethod();
         // pre loader
         initLoader(ctx);
         // save codevisitor
