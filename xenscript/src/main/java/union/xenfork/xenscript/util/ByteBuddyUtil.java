@@ -6,7 +6,9 @@ import net.bytebuddy.dynamic.DynamicType;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 
+@SuppressWarnings("UnusedReturnValue")
 public class ByteBuddyUtil {
     private static final ByteBuddy byteBuddy = new ByteBuddy(ClassFileVersion.JAVA_V17);
     private boolean output = false;
@@ -15,12 +17,18 @@ public class ByteBuddyUtil {
     private DynamicType.Loaded<?> load;// loaded
     public ByteBuddyUtil() {}
 
-    public void outPut() {
+    public ByteBuddyUtil outPut() {
         this.output = true;
+        return this;
     }
 
     public ByteBuddyUtil subclass(Class<?> clazz) {
         builder = byteBuddy.subclass(clazz);
+        return this;
+    }
+
+    public ByteBuddyUtil name(String name) {
+        builder = builder.name(name);
         return this;
     }
 
@@ -43,5 +51,9 @@ public class ByteBuddyUtil {
 
     public Class<?> load() {
         return load.getLoaded();
+    }
+
+    public Object instance() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        return load().getDeclaredConstructor().newInstance();
     }
 }

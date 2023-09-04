@@ -11,6 +11,7 @@ import net.bytebuddy.matcher.ElementMatchers;
 import org.antlr.v4.runtime.tree.ParseTree;
 import union.xenfork.xenscript.parser.XenCodeParser;
 import union.xenfork.xenscript.parser.XenCodeParserBaseVisitor;
+import union.xenfork.xenscript.util.ByteBuddyUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,14 +25,14 @@ public class CodeVisitor extends XenCodeParserBaseVisitor<Object> {
     private final List<XenCodeParser.ThreadContext> loader = new ArrayList<>();
     private final Integer priority;
     private final String name;
-    DynamicType.Builder<?> builder;
+    private final ByteBuddyUtil util;
 
     public CodeVisitor(Integer priority, String name, File file, BiMap<Integer, List<Pair<String, XenCodeParser.ThreadContext>>> priorityFile) {
         this.priorityFile = priorityFile;
         this.file = file;
         this.priority = priority;
         this.name = name;
-
+        util = new ByteBuddyUtil();
     }
 
     @Override
@@ -51,14 +52,16 @@ public class CodeVisitor extends XenCodeParserBaseVisitor<Object> {
                 className.append(".").append(extendExprContext.NAMED(i));
             }
             try {
-                builder = new ByteBuddy().subclass(Class.forName(className.toString()));
+                util.subclass(Class.forName(className.toString()));
+
             } catch (ClassNotFoundException e) {
                 error("not find class" + className);
-                builder = new ByteBuddy().subclass(Object.class);
+                util.subclass(Object.class);
             }
         } else {
-            builder = new ByteBuddy().subclass(Object.class);
+            util.subclass(Object.class);
         }
+        util.name(name);
         // pre loader
         initLoader(ctx);
         // save codevisitor
@@ -68,8 +71,9 @@ public class CodeVisitor extends XenCodeParserBaseVisitor<Object> {
         File test = new File(System.getProperty("user.dir"), "test");
         if (!test.exists()) test.mkdirs();
         try {
-
-            builder.name(name).method(ElementMatchers.named("toString")).intercept(FixedValue.value("A")).make().saveIn(test);
+            util.outPut();
+            util.make();
+//            builder.name(name).method(ElementMatchers.named("toString")).intercept(FixedValue.value("A")).make().saveIn(test);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
