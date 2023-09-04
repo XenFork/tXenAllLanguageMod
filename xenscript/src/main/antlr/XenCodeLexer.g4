@@ -10,10 +10,11 @@ FOR: 'for';
 WHILE: 'while';
 BOOL: 'true' | 'false' | 'True' | 'False';
 SUBLEVEL: ',';
-LA: '<=';
-RA: '>=';//R assign
+LA: '<=' | '!+';
+RA: '>=' | '!-';//R assign
 LAMBDA: '=>';// lambda
 L: '<';
+NOT: '!';
 R: '>';
 AND: '&&';
 OR: '||';
@@ -26,7 +27,7 @@ ADD: '+';
 SUB: '-';
 MUL: '*';
 DIV: '/';
-NOT: '!';
+
 
 INVOKE: '<-'; // method invoker
 OUT: '->'; // output method some vararg to val or var
@@ -35,6 +36,7 @@ PRECISION:NUMBER '.' NUMBER;// all float or double
 NAMED: [a-zA-Z_]+ ([0-9a-zA-Z]+ | );//var val name
 END: ';';// the end
 IL: '#';// import and loader
+EXTEND: '##';//extend subclass
 
 STRING: '"' (~["\\\r\n] | EscapeSequence)* '"';// string using java
 

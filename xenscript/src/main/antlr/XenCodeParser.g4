@@ -3,7 +3,8 @@ parser grammar XenCodeParser;
 options {
     tokenVocab = XenCodeLexer;
 }
-thread: (priority | ) (loaderExpr+ | ) (importExpr+ | ) ((forExpr | whileExpr | expr)+ | );// all bus
+thread: (priority | ) (extendExpr | ) (loaderExpr+ | ) (importExpr+ | ) ((forExpr | whileExpr | expr)+ | );// all bus
+extendExpr: EXTEND  NAMED (SPLIT NAMED)+  END;
 loaderExpr: IL NAMED END;// such as # a_xcs; to use a.xcs this script or #a_b_xcs; to use a_b.xcs or a.b.xcs //check some script
 priority: IL NUMBER END;// priority
 importExpr: IL NAMED (SPLIT NAMED)+ END;

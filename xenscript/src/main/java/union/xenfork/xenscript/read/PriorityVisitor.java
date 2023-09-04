@@ -13,11 +13,12 @@ import java.util.List;
 public class PriorityVisitor extends XenCodeParserBaseVisitor<Object> {
 
     private final BiMap<Integer, List<Pair<String, File>>> priorityFile;
-    private final File file;
+    private final File file, path;
 
-    public PriorityVisitor(File file, BiMap<Integer, List<Pair<String, File>>> priorityFile) {
+    public PriorityVisitor(File file, BiMap<Integer, List<Pair<String, File>>> priorityFile, File path) {
         this.priorityFile = priorityFile;
         this.file = file;
+        this.path = path;
     }
     @Override
     public Object visitThread(XenCodeParser.ThreadContext ctx) {
@@ -28,7 +29,8 @@ public class PriorityVisitor extends XenCodeParserBaseVisitor<Object> {
             integer = Integer.MAX_VALUE;
         }
         List<Pair<String, File>> list = priorityFile.containsKey(integer)? priorityFile.get(integer) : new ArrayList<>();
-        list.add(new Pair<>(file.getName().replace(".", "_"), file));
+
+        list.add(new Pair<>("union.xenfork.xcs." + file.getAbsolutePath().replace(path.getAbsolutePath() + File.separator, "").replace(File.separator, "_").replace(".", "_"), file));
         priorityFile.put(integer, list);
         return null;
     }

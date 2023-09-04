@@ -2,29 +2,77 @@ package union.xenfork.xenscript.read;
 
 import cn.hutool.core.lang.Pair;
 import cn.hutool.core.map.BiMap;
+import cn.hutool.core.text.StrBuilder;
+import net.bytebuddy.ByteBuddy;
+import net.bytebuddy.dynamic.DynamicType;
+import net.bytebuddy.implementation.FixedValue;
+import net.bytebuddy.matcher.ElementMatcher;
+import net.bytebuddy.matcher.ElementMatchers;
+import org.antlr.v4.runtime.tree.ParseTree;
 import union.xenfork.xenscript.parser.XenCodeParser;
 import union.xenfork.xenscript.parser.XenCodeParserBaseVisitor;
 
 import java.io.File;
-import java.math.BigInteger;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class CodeVisitor extends XenCodeParserBaseVisitor<Object> {
-    private final BiMap<BigInteger, List<Pair<String, CodeVisitor>>> priorityFile;
+    private final BiMap<Integer, List<Pair<String, XenCodeParser.ThreadContext>>> priorityFile;
     private final File file;
 
-    private List<CodeVisitor> loader = new ArrayList<>();
-    public CodeVisitor(File file, BiMap<BigInteger, List<Pair<String, CodeVisitor>>> priorityFile) {
+    private final List<XenCodeParser.ThreadContext> loader = new ArrayList<>();
+    private final Integer priority;
+    private final String name;
+    DynamicType.Builder<?> builder;
+
+    public CodeVisitor(Integer priority, String name, File file, BiMap<Integer, List<Pair<String, XenCodeParser.ThreadContext>>> priorityFile) {
         this.priorityFile = priorityFile;
         this.file = file;
+        this.priority = priority;
+        this.name = name;
+
     }
+
+    @Override
+    public Object visit(ParseTree tree) {
+        if (tree instanceof XenCodeParser.ThreadContext context) {
+            visitThread(context);
+        }
+        return null;
+    }
+
     @Override
     public Object visitThread(XenCodeParser.ThreadContext ctx) {
-
+        if (ctx.extendExpr() != null) {
+            XenCodeParser.ExtendExprContext extendExprContext = ctx.extendExpr();
+            StrBuilder className = new StrBuilder(extendExprContext.NAMED(0).getText());
+            for (int i = 1; i < extendExprContext.NAMED().size(); i++) {
+                className.append(".").append(extendExprContext.NAMED(i));
+            }
+            try {
+                builder = new ByteBuddy().subclass(Class.forName(className.toString()));
+            } catch (ClassNotFoundException e) {
+                error("not find class" + className);
+                builder = new ByteBuddy().subclass(Object.class);
+            }
+        } else {
+            builder = new ByteBuddy().subclass(Object.class);
+        }
+        // pre loader
         initLoader(ctx);
+        // save codevisitor
+        List<Pair<String, XenCodeParser.ThreadContext>> pairs = priorityFile.containsKey(priority) ? priorityFile.get(priority) : new ArrayList<>();
+        pairs.add(new Pair<>(name, ctx));
+        priorityFile.put(priority, pairs);
+        File test = new File(System.getProperty("user.dir"), "test");
+        if (!test.exists()) test.mkdirs();
+        try {
+
+            builder.name(name).method(ElementMatchers.named("toString")).intercept(FixedValue.value("A")).make().saveIn(test);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         return null;
     }
 
@@ -34,8 +82,8 @@ public class CodeVisitor extends XenCodeParserBaseVisitor<Object> {
                 String l = visitLoaderExpr(loader);
                 boolean error = true;
                 for (var entry : priorityFile) {
-                    List<Pair<String, CodeVisitor>> value = entry.getValue();
-                    for (Pair<String, CodeVisitor> kv : value) {
+                    List<Pair<String, XenCodeParser.ThreadContext>> value = entry.getValue();
+                    for (Pair<String, XenCodeParser.ThreadContext> kv : value) {
                         if (kv.getKey().equals(l)) {
                             error = false;
                             this.loader.add(kv.getValue());
@@ -57,7 +105,7 @@ public class CodeVisitor extends XenCodeParserBaseVisitor<Object> {
     }
 
     public void error(String message) {
-        throw new AssertionError();
+        System.out.println(message);
     }
 
 }
