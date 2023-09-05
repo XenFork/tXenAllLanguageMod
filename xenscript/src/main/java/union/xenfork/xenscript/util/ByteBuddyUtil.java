@@ -2,73 +2,84 @@ package union.xenfork.xenscript.util;
 
 import net.bytebuddy.ByteBuddy;
 import net.bytebuddy.ClassFileVersion;
-import net.bytebuddy.description.modifier.MethodManifestation;
 import net.bytebuddy.description.modifier.Ownership;
-import net.bytebuddy.description.modifier.ParameterManifestation;
 import net.bytebuddy.description.modifier.Visibility;
-import net.bytebuddy.dynamic.DynamicType;
 import net.bytebuddy.implementation.*;
-import net.bytebuddy.matcher.ElementMatchers;
+import union.xenfork.xenscript.records.ByteRecord;
 
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
-import static net.bytebuddy.matcher.ElementMatchers.*;
+import static net.bytebuddy.description.modifier.MethodManifestation.FINAL;
+import static union.xenfork.xenscript.records.ByteRecord.byteBuddy;
 
 @SuppressWarnings("UnusedReturnValue")
 public class ByteBuddyUtil {
-    private static final ByteBuddy byteBuddy = new ByteBuddy(ClassFileVersion.JAVA_V17);
-    private boolean output = false;
-    private DynamicType.Builder<?> builder;
-    private DynamicType.Unloaded<?> make;// un loaded
-    private DynamicType.Loaded<?> load;// loaded
-    private DynamicType.Builder.MethodDefinition.ParameterDefinition.Initial<?> aDefault;
-    public ByteBuddyUtil() {}
+
+    public ByteRecord byteRecord;
+
+    public ByteBuddyUtil() {
+        byteRecord = new ByteRecord();
+    }
 
     public ByteBuddyUtil outPut() {
-        this.output = true;
+        byteRecord.setOutput(true);
         return this;
     }
 
     public ByteBuddyUtil subclass(Class<?> clazz) {
-        builder = byteBuddy.subclass(clazz);
+        byteRecord.setBuilder(byteBuddy.subclass(clazz));
         return this;
     }
 
     public ByteBuddyUtil name(String name) {
-        builder = builder.name(name);
+        if (byteRecord.getBuilder() == null) {
+            byteRecord.setBuilder(byteBuddy.subclass(Object.class));
+        }
+        byteRecord.setBuilder(byteRecord.getBuilder().name(name));
         return this;
     }
 
     public ByteBuddyUtil defaultMethod() {
 
-        aDefault = builder.defineMethod("default_method", void.class, Visibility.PUBLIC, Ownership.STATIC);
-//        param = aDefault.withParameter(String.class, "strParam", ParameterManifestation.FINAL);
-        builder = aDefault.intercept(StubMethod.INSTANCE);
+        byteRecord.setaDefault(byteRecord.getBuilder().defineMethod("default_method", void.class, Visibility.PUBLIC, Ownership.STATIC, FINAL));
+        return this;
+    }
+
+    public ByteBuddyUtil defaultImpl() {
+        byteRecord.setDeImpl(StubMethod.INSTANCE);
+        return this;
+    }
+
+    public ByteBuddyUtil andThen() {
+        return this;
+    }
+
+    public ByteBuddyUtil defaultBuild() {
+        byteRecord.setBuilder(byteRecord.getaDefault().intercept(byteRecord.getDeImpl()));
         return this;
     }
 
     public ByteBuddyUtil make() throws IOException {
-        make = builder.make();
+        byteRecord.setMake(byteRecord.getBuilder().make());
         return saveIn();
     }
 
     public ByteBuddyUtil saveIn() throws IOException {
         File test = new File(System.getProperty("user.dir"), "test");
         if (!test.exists()) test.mkdirs();
-        if (output) make.saveIn(test);
+        if (byteRecord.isOutput()) byteRecord.getMake().saveIn(test);
         return this;
     }
 
     public ByteBuddyUtil load(ClassLoader loader) {
-        load = make.load(loader);
+        byteRecord.setLoad(byteRecord.getMake().load(loader));
         return this;
     }
 
     public Class<?> load() {
-        return load.getLoaded();
+        return byteRecord.getLoad().getLoaded();
     }
 
     public Object instance() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {

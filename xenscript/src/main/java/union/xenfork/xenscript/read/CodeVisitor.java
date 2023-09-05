@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class CodeVisitor extends XenCodeParserBaseVisitor<Object> {
     private final BiMap<Integer, List<Pair<String, XenCodeParser.ThreadContext>>> priorityFile;
@@ -48,21 +49,16 @@ public class CodeVisitor extends XenCodeParserBaseVisitor<Object> {
         if (ctx.extendExpr() != null) {
             XenCodeParser.ExtendExprContext extendExprContext = ctx.extendExpr();
             StrBuilder className = new StrBuilder(extendExprContext.NAMED(0).getText());
-            for (int i = 1; i < extendExprContext.NAMED().size(); i++) {
-                className.append(".").append(extendExprContext.NAMED(i));
-            }
+            IntStream.range(1, extendExprContext.NAMED().size()).forEachOrdered(i -> className.append(".").append(extendExprContext.NAMED(i)));
             try {
                 util.subclass(Class.forName(className.toString()));
-
-            } catch (ClassNotFoundException e) {
-                error("not find class" + className);
-                util.subclass(Object.class);
-            }
-        } else {
-            util.subclass(Object.class);
+            } catch (ClassNotFoundException e) { error("not find class" + className); }
         }
         util.name(name);
-        util.defaultMethod();
+        util.defaultMethod().defaultImpl();
+        // code invoker
+
+        util.defaultBuild();
         // pre loader
         initLoader(ctx);
         // save codevisitor

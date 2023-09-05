@@ -2,6 +2,7 @@ package union.xenfork.xenscript.read;
 
 import cn.hutool.core.lang.Pair;
 import cn.hutool.core.map.BiMap;
+import cn.hutool.core.text.StrBuilder;
 import union.xenfork.xenscript.parser.XenCodeParser;
 import union.xenfork.xenscript.parser.XenCodeParserBaseVisitor;
 
@@ -9,6 +10,7 @@ import java.io.File;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class PriorityVisitor extends XenCodeParserBaseVisitor<Object> {
 
@@ -30,7 +32,13 @@ public class PriorityVisitor extends XenCodeParserBaseVisitor<Object> {
         }
         List<Pair<String, File>> list = priorityFile.containsKey(integer)? priorityFile.get(integer) : new ArrayList<>();
 
-        list.add(new Pair<>("union.xenfork.xcs." + file.getAbsolutePath().replace(path.getAbsolutePath() + File.separator, "").replace(File.separator, "_").replace(".", "_"), file));
+        String replace = file.getAbsolutePath().replace(path.getAbsolutePath() + File.separator, "").replace(File.separator, "_").replace(".", "_");
+
+        StrBuilder sb = new StrBuilder(String.valueOf(replace.charAt(0)).toUpperCase(Locale.ROOT));
+        for (int i = 1; i < replace.length(); i++) {
+            sb.append(replace.charAt(i));
+        }
+        list.add(new Pair<>("union.xenfork.xcs." + sb, file));
         priorityFile.put(integer, list);
         return null;
     }
