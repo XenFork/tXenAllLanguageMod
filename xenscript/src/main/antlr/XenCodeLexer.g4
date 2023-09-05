@@ -33,7 +33,7 @@ INVOKE: '<-'; // method invoker
 OUT: '->'; // output method some vararg to val or var
 NUMBER: [0-9]+; //all number
 PRECISION:NUMBER '.' NUMBER;// all float or double
-NAMED: [a-zA-Z_]+ ([0-9a-zA-Z]+ | );//var val name
+NAMED: [a-zA-Z]+ ([0-9a-zA-Z_]+ | );//var val name
 END: ';';// the end
 IL: '#';// import and loader
 EXTEND: '##';//extend subclass
