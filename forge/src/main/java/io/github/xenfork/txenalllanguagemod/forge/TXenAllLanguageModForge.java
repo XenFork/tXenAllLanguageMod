@@ -10,6 +10,6 @@ public class TXenAllLanguageModForge {
     public TXenAllLanguageModForge() {
 		// Submit our event bus to let architectury register our content on the right time
         EventBuses.registerModEventBus(TXenAllLanguageMod.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
-            TXenAllLanguageMod.init();
+        TXenAllLanguageMod.init();
     }
 }
