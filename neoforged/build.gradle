@@ -14,6 +14,10 @@ configurations {
     developmentForge.extendsFrom common
 }
 
+repositories {
+    maven { url "https://maven.neoforged.net/releases/" }
+}
+
 dependencies {
     forge "net.neoforged:forge:${rootProject.neo_forged_version}"
     // Remove the next line if you don't want to depend on the API
